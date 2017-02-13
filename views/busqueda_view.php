@@ -40,7 +40,7 @@
       </ul>
       </div>
       <form class="form-inline float-lg-right">
-          <input class="form-control btn btn-outline-primary" type="button" value="Cerrar Sesión" onclick="location='cerrar.php'"/>
+          <input class="form-control btn btn-outline-primary" type="button" value="Entrar" onclick="location='login.php'"/>
       </form>
     </div>
 		</nav>

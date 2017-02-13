@@ -47,7 +47,7 @@ function  insertMarker(){
 //peticion ajax al servidor
   $.ajax({
       async:true,
-      url: "php/MapReduceMR_busqueda.php",//devuelve un json con los marcadores que están en la base de datos.
+      url: "php/getMarkers_busqueda.php",//devuelve un json con los marcadores que están en la base de datos.
       dataType: "json",
       success:pintar
       });
