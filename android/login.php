@@ -1,4 +1,5 @@
 <?php
+require '../vendor/autoload.php';
     try {
         $connection = new MongoDB\Client;
         $database = $connection->PuntosMuestreo;

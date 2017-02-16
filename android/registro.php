@@ -1,4 +1,5 @@
 <?php
+require '../vendor/autoload.php';
     try {
         $connection = new MongoDB\Client;
         $database = $connection->PuntosMuestreo;
@@ -19,22 +20,28 @@
 
     
     if (!is_null($datos)) {
-            $response["mensaje"] = "El correo ya existe"; 
+            $response["mensaje"] = "El correo ya existe."; 
     }else{
-        try {
-            $documento = array();
-            $documento['nombre'] = $nombre;
-            $documento['correo'] = $correo;
-            $documento['password'] = $password;
-            $documento['validado'] = True;
-            $status = $collection->insertOne($documento, array('safe' => true));
-            $response["success"] = true;
-      
-        } catch(MongoCursorException $e){
-          $response["mensaje"] = "El registro falló"; 
-        } catch (MongoException $e){
-          $response["mensaje"] = "El registro falló"; 
+        if (empty($correo) or empty($password)) {
+            $response["mensaje"] = "Ingrese los campos de nombre y correo.";
+        }else{
+            try {
+            
+                $documento = array();
+                $documento['nombre'] = $nombre;
+                $documento['correo'] = $correo;
+                $documento['password'] = $password;
+                $documento['validado'] = True;
+                $status = $collection->insertOne($documento, array('safe' => true));
+                $response["success"] = true;
+
+            } catch(MongoCursorException $e){
+              $response["mensaje"] = "El registro falló."; 
+            } catch (MongoException $e){
+              $response["mensaje"] = "El registro falló."; 
+            }
         }
+        
     }
 
     echo json_encode($response);
