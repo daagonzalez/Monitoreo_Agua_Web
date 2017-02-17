@@ -8,8 +8,8 @@ require '../vendor/autoload.php';
         echo "Error: " . $e->getMessage();
     }
 
-    $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);
-    $password = $_POST['contraseña'];
+    $correo = filter_var(strtolower($_POST['email']), FILTER_SANITIZE_STRING);
+    $password = $_POST['password'];
     $password = hash('sha512', $password);
     
     $datos = $collection->findOne(array('$and' => array(array('correo' => $correo), array('password' => $password) )));
