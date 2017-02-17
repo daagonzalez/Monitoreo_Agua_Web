@@ -8,7 +8,7 @@ require '../vendor/autoload.php';
         echo "Error: " . $e->getMessage();
     }
 
-    $correo = filter_var(strtolower($_POST['email']), FILTER_SANITIZE_STRING);
+    $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
     $password = hash('sha512', $password);
     
@@ -22,7 +22,11 @@ require '../vendor/autoload.php';
         if($datos['validado'] == true){
             $response["success"] = true;
             $response["correo"] = $correo; 
+        }else{
+            $response["mensaje"] = "La cuenta no está validada."; 
         }
+    }else{
+        $response["mensaje"] = "Datos incorrectos."; 
     }
 echo json_encode($response);
 
