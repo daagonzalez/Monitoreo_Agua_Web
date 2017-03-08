@@ -1,5 +1,5 @@
 <?php
-require '../../vendor/autoload.php';
+require '../vendor/autoload.php';
 $token = $_GET['token'];
 $idusuario = $_GET['idusuario'];
 

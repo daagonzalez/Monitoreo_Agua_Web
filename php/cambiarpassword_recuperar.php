@@ -1,5 +1,5 @@
 <?php
-require '../../vendor/autoload.php';
+require '../vendor/autoload.php';
 $password1 = $_POST['password1'];
 $password2 = $_POST['password2'];
 $idusuario = $_POST['idusuario'];

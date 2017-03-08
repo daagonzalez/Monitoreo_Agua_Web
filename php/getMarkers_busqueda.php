@@ -3,7 +3,6 @@
 
 	$client = new MongoDB\Client("mongodb://localhost:27017");
 	$coleccion = $client->PuntosMuestreo->DatosCurri; //ingresar a la base de datos Peliculas
-
 	$map = new MongoDB\BSON\Javascript("function(){emit(this.POI.nombre_estacion, this.Muestra.fecha+';'+this._id+','+this.POI.location.lat+','+this.POI.location.lng+','+this.Muestra.color)};");
 	$reduce = new MongoDB\BSON\Javascript("function(key,values){".
 	"var temp=0;".

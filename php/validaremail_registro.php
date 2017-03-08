@@ -1,6 +1,6 @@
 <?php
 
-require '../../vendor/autoload.php';
+require '../vendor/autoload.php';
 
 function validarCorreo($dato){
   if (!filter_var($dato, FILTER_VALIDATE_EMAIL)) 

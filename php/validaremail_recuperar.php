@@ -1,6 +1,6 @@
 <?php
 
-require '../../vendor/autoload.php';
+require '../vendor/autoload.php';
 function generarLinkTemporal($idusuario){
   // Se genera una cadena para validar el cambio de contraseña
   $cadena = $idusuario.rand(1,9999999).date('Y-m-d');

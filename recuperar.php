@@ -1,7 +1,7 @@
 <?php session_start();
 //require '../vendor/autoload.php';
 if (isset($_SESSION['correo'])) {
-    header('Location: ../paginaBusqueda/');
+    header('Location: busqueda.php');
 }
 
 
