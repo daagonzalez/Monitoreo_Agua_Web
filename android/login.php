@@ -10,7 +10,7 @@ require '../vendor/autoload.php';
 
     $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
-    $password = hash('sha512', $password);
+    //$password = hash('sha512', $password);
     
     $datos = $collection->findOne(array('$and' => array(array('correo' => $correo), array('password' => $password) )));
 
@@ -21,7 +21,8 @@ require '../vendor/autoload.php';
     if (!is_null($datos)) {
         if($datos['validado'] == true){
             $response["success"] = true;
-            $response["correo"] = $correo; 
+            $response["correo"] = $correo;
+            $response["password"] = $password;
         }else{
             $response["mensaje"] = "La cuenta no está validada."; 
         }

@@ -11,7 +11,7 @@ require '../vendor/autoload.php';
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);
     $password = $_POST['password'];
-    $password = hash('sha512', $password);
+    //$password = hash('sha512', $password);
     
     $datos = $collection->findOne(array('correo' => $correo),array('correo' => 1));
 
