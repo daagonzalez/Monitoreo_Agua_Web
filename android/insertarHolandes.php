@@ -2,38 +2,65 @@
 require '../vendor/autoload.php';
 
 
-//Método para calcular el valor del indice NSF
-function calc_indice($PO2,$DBO,$CF,$pH){
-    $valorPO2 = -13.55+(1.17*$PO2);
-    $valorPO2 = $valorPO2*0.31;
-    $valorDBO = 96.67-(7*$DBO);
-    $valorDBO = $valorDBO*0.19;
-    $valorCF = 97.2-(26.6*log10($CF));
-    $valorCF = $valorCF*0.28;
-    $valorpH = 316.96-(29.85*$pH);
-    $valorpH = $valorpH*0.22;
-    
-    $respuesta = $valorPO2 + $valorDBO + $valorCF+ $valorpH;
-    return $respuesta;
+//Método para calcular el índece Holandés
+function calc_indice($PO2, $DBO, $NH4){
+    $puntos = 0;
+  //validacion PO2
+  if($PO2 >= 91 && $PO2 <= 100){
+    $puntos += 1;
+  }elseif(($PO2 >= 71 && $PO2 <= 90)||($PO2 >= 111 && $PO2 <= 120)){
+    $puntos += 2;
+  }elseif(($PO2 >= 51 && $PO2 <= 70)||($PO2 >= 121 && $PO2 <= 130)){
+    $puntos += 3;
+  }elseif($PO2 >= 31 && $PO2 <= 50){
+    $puntos += 4;
+  }else{
+    $puntos += 5;
+  }
+  //validacion DBO
+  if($DBO <= 3.0){
+    $puntos += 1;
+  }elseif($DBO >= 3.1 && $DBO <= 6.0){
+    $puntos += 2;
+  }elseif($DBO >= 6.1 && $DBO <= 9.0){
+    $puntos += 3;
+  }elseif($DBO >= 9.1 && $DBO <= 15.0){
+    $puntos += 4;
+  }else{
+    $puntos += 5;
+  }
+  //validacion NH4
+  if($NH4 < 0.50){
+    $puntos += 1;
+  }elseif($NH4 >= 0.50 && $NH4 <= 1.0){
+    $puntos += 2;
+  }elseif($NH4 >= 1.1 && $NH4 <= 2.0){
+    $puntos += 3;
+  }elseif($NH4 >= 2.1 && $NH4 <= 5.0){
+    $puntos += 4;
+  }else{
+    $puntos += 5;
+  }
+    return $puntos;
      
 }
-//Método para calcular el color asociado al valor del índice NSF
+
+//Método para calcular el color asociado al valor del índice
 function calc_color($puntos){
-    if($puntos >= 91 && $puntos <= 100){
-        $respuesta = "Azul";
-    }elseif($puntos >= 71 && $puntos <= 90){
-        $respuesta = "Verde";
-    }elseif($puntos >= 51 && $puntos <= 70){
-        $respuesta = "Amarillo";
-    }elseif($puntos >= 26 && $puntos <= 50){
-        $respuesta = "Anaranjado";
-    }else{
-        $respuesta = "Rojo";
-    }
+    if($puntos == 3 ){
+    $respuesta = "Azul";
+  }elseif($puntos >= 4 && $puntos <= 6){
+    $respuesta = "Verde";
+  }elseif($puntos >= 7 && $puntos <= 9){
+    $respuesta = "Amarillo";
+  }elseif($puntos >= 10 && $puntos <= 12){
+    $respuesta = "Anaranjado";
+  }else{
+    $respuesta = "Rojo";
+  }
     return $respuesta;
 }
 
-//Método para validar que un dato es entero o flotante, si está vacio entonces ingresa ND = No definido
 function validarDato($dato){
   if(is_numeric($dato)){
     if(ctype_digit($dato)){
@@ -67,8 +94,9 @@ function validarDato($dato){
     $area_cauce_rio = validarDato($_POST['area_cauce_rio']);
     $PO2 = (float) $_POST['PO2'];
     $DBO = (float) $_POST['DBO'];
-    $CF = (float) $_POST['CF'];
-    $pH = (float) $_POST['pH'];
+    $NH4 = (float) $_POST['NH4'];
+    $CF = validarDato($_POST['CF']);
+    $pH = validarDato($_POST['pH']);
     $DQO = validarDato($_POST['DQO']);
     $EC = validarDato($_POST['EC']);
     $PO4 = validarDato($_POST['PO4']);
@@ -80,7 +108,6 @@ function validarDato($dato){
     $T = validarDato($_POST['T']);
     $Aforo = validarDato($_POST['Aforo']);
     $ST = validarDato($_POST['ST']);
-    $NH4 = validarDato($_POST['NH4']);
     $Fosfato = validarDato($_POST['Fosfato']);
     $Nitrato = validarDato($_POST['Nitrato']);
     $Turbidez = validarDato($_POST['Turbidez']);
@@ -96,7 +123,7 @@ function validarDato($dato){
     $cod_dist = (int) $_POST['cod_dist'];
     $cod_rio = (int) $_POST['cod_rio'];
 
-    $valor_ind = calc_indice($PO2,$DBO,$CF,$pH);
+    $valor_ind = calc_indice($PO2, $DBO, $NH4);
     $color = calc_color($valor_ind);
 
     //Definición de documentos
@@ -111,8 +138,7 @@ function validarDato($dato){
     //Insercion de datos a documentos
     $obligatorios['% O2'] = $PO2;
     $obligatorios['DBO'] = $DBO;
-    $obligatorios['CF'] = $CF;
-    $obligatorios['pH'] = $pH;
+    $obligatorios['NH4'] = $NH4;
 
     $opcionales['DQO'] = $DQO;
     $opcionales['EC'] = $EC;
@@ -125,7 +151,8 @@ function validarDato($dato){
     $opcionales['T'] = $T;
     $opcionales['Aforo'] = $Aforo;
     $opcionales['ST'] = $ST;
-    $opcionales['NH4'] = $NH4;
+    $opcionales['CF'] = $CF;
+    $opcionales['pH'] = $pH;    
     $opcionales['Fosfato'] = $Fosfato;
     $opcionales['Nitrato'] = $Nitrato;
     $opcionales['Turbidez'] = $Turbidez;
@@ -161,6 +188,8 @@ function validarDato($dato){
     $documento['POI'] = $POI;
     
     //inserción del documento a la base de datos
+
+
     $response = array();
     $response["success"] = false;
 
