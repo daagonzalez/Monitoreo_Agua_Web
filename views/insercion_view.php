@@ -13,7 +13,7 @@
     <title>Inserción de datos</title>
   </head>
   <body>
-		  <?php 
+	  <?php 
         require 'views/menu_view.php';
       ?>
 		
@@ -348,4 +348,7 @@
     </script>
 
   </body>
+    <?php 
+    require 'views/footer_view.php';
+   ?>
 </html>

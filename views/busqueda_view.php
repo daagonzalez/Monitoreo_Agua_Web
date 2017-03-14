@@ -38,7 +38,7 @@
     </div>
 
     <!-- Contenedor realizan las consultas gruesas de la base de datos, se encuentra dentro del mapa -->
-  	<div class="buscador">
+  	<!-- <div class="buscador">
   		<ul class="mainUl">
   			<h4 class="title">Seleccione filtros</h4>
   			<ul class="childUl">			
@@ -50,13 +50,13 @@
   				<li>
   					<h4>Institución</h4>    
   					<select id="institucion">
-
+  	
   					</select>
   		  	</li>
-          <button class="btnFiltrar"><i class="fa fa-search" style="color: blue;"></i></button>
+  	          <button class="btnFiltrar"><i class="fa fa-search" style="color: blue;"></i></button>
   			</ul>
   		</ul> 
-  	</div>
+  	</div> -->
     
     <!-- Contenedor del mapa, cargado desde js -->
     <div id="map"></div>
@@ -81,4 +81,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
   </body>
+  <?php 
+    require 'views/footer_view.php';
+   ?>
 </html>

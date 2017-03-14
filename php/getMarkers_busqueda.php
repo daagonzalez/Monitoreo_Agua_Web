@@ -1,8 +1,13 @@
 <?php
 	require '../vendor/autoload.php'; // include Composer goodies
 
-	$client = new MongoDB\Client("mongodb://localhost:27017");
-	$coleccion = $client->PuntosMuestreo->DatosCurri; //ingresar a la base de datos Peliculas
+	  try {
+		$client = new MongoDB\Client("mongodb://localhost:27017");
+		$coleccion = $client->PuntosMuestreo->DatosCurri; //ingresar a la base de datos Peliculas
+	  } catch (MongoConnectionException $e) {
+	    echo "Error: " . $e->getMessage();
+	  }
+	  
 	$map = new MongoDB\BSON\Javascript("function(){emit(this.POI.nombre_estacion, this.Muestra.fecha+';'+this._id+','+this.POI.location.lat+','+this.POI.location.lng+','+this.Muestra.color)};");
 	$reduce = new MongoDB\BSON\Javascript("function(key,values){".
 	"var temp=0;".
