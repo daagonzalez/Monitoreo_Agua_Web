@@ -1,0 +1,10 @@
+.margenNav {
+    margin-bottom: 10px;
+}
+.margenNav .menu_form {
+    padding: 5px 0;
+}
+.margenNav .menu_form .nombre_usuario {
+    color: white;
+    padding-right: 1rem;
+}
