@@ -55,19 +55,19 @@ function  insertMarker(){
 
 
 function pintar(jsonData){
-  jsonDatosBD=jsonData[0].results;//temporal; es solo para que aparezcan los marcadores.
+  jsonDatosBD=jsonData;//temporal; es solo para que aparezcan los marcadores.
 //se insertan en el mapa los marcadores elegidos
   for (var i = 0; i < Object.keys(jsonDatosBD).length; i++) {
 	    markers[i] = new google.maps.Marker({
 	    map: map,
-	    position:jsonDatosBD[i].value.location,
-	    title: 'Calidad del agua: '+jsonDatosBD[i].value.color,
-	    icon:"data/Templatic-map-icons/"+jsonDatosBD[i].value.color+".png",
+	    position:jsonDatosBD[i].location,
+	    title: 'Calidad del agua: '+jsonDatosBD[i].color,
+	    icon:"data/Templatic-map-icons/"+jsonDatosBD[i].color+".png",
 	    id:i//parametro que identifica de forma única a cada marcador, con él se puede encontrar el id real del objeto.
 	  });
 
       //se hace una asociación indice color.
-	  niveles[i]=jsonDatosBD[i].value.color;
+	  niveles[i]=jsonDatosBD[i].color;
       //se asocia un evento a cada marcador.
       google.maps.event.addListener(markers[i], 'click', function() {
       	aritmeticaPOIS(this);
@@ -80,11 +80,11 @@ function pintar(jsonData){
 function aritmeticaPOIS(marcador) {
   //utilizado para controlar el click al momento de que ya existen marcadores seleccionados o se da click sobre el mismo
 		if(marcador.id==idMarker1){//si se da click sobre uno ya seleccionado
-      marcador.setIcon("data/Templatic-map-icons/"+jsonDatosBD[idMarker1].value.color+".png");
+      marcador.setIcon("data/Templatic-map-icons/"+jsonDatosBD[idMarker1].color+".png");
       contadorClicks--;
 			idMarker1=-1;
 		}else if(marcador.id==idMarker2){//si se da click sobre uno ya seleccionado
-      marcador.setIcon("data/Templatic-map-icons/"+jsonDatosBD[idMarker2].value.color+".png");
+      marcador.setIcon("data/Templatic-map-icons/"+jsonDatosBD[idMarker2].color+".png");
       contadorClicks--;
 			idMarker2=-1;
 			//utilizado para controlar el click valido.
@@ -113,8 +113,8 @@ $(".btnFiltrarArPOI").click(function(){
   console.log(filterMarker.position.lat()+","+filterMarker.position.lng());
 	if(contadorClicks==2){//se permite filtrar, aquí se debe traer la información desde la BD.
         var parametros = {
-        	"id1" : jsonDatosBD[idMarker1].value.id,
-        	"id2" : jsonDatosBD[idMarker2].value.id
+        	"id1" : jsonDatosBD[idMarker1].id,
+        	"id2" : jsonDatosBD[idMarker2].id
         };
         $.ajax({
                 async:true,
