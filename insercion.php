@@ -1,7 +1,4 @@
-<?php session_start();
-if (!isset($_SESSION['correo'])) {
-    header('Location: login.php');
-}
+<?php session_start(); if (!isset($_SESSION['correo'])) { header('Location: login.php'); }
 require 'vendor/autoload.php';
 
   $error = "";
@@ -248,4 +245,3 @@ switch ($action) {
 }
 require 'views/insercion_view.php';
 ?>
-
