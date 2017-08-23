@@ -3,7 +3,7 @@
 
     require 'databaseConnection.php';
     
-    $collection=connectDatabaseCollection('MonitoreaAgua','usuarios',1);
+    $collection=connectDatabaseCollection('MonitoreoAgua','usuarios',1);
 
 
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);

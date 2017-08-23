@@ -10,7 +10,7 @@
 			$directorio = "..".DS."pictures".DS."$objId".DS;
 			//se genera el código QR y se guarda para todas las fotos.
 			$qrName=$directorio."qr_".$objId.".png";
-			QRcode::png("http://monitoreoagua.ucr.ac.cr/android/DerechosAutor/author.php?objid=$objId", $qrName,QR_ECLEVEL_H, 2, 2);  
+			QRcode::png("http://monitoreoagua.ucr.ac.cr/DerechosAutor/author.php?objid=$objId", $qrName,QR_ECLEVEL_H, 2, 2);  
 			
 			//se agrega el QR a cada una de las fotos
 			for($i=0;$i<$cantidad;$i++){
@@ -46,7 +46,7 @@
 			$directorio = "..".DS."pictures".DS."$objId".DS;
 			//se genera el código QR y se guarda para todas las fotos.
 			$qrName=$directorio."qr_".$objId.".png";
-			QRcode::png("http://monitoreoagua.ucr.ac.cr/android/DerechosAutor/author.php?objid=$objId", $qrName,QR_ECLEVEL_L, 2, 2);  
+			QRcode::png("http://monitoreoagua.ucr.ac.cr/DerechosAutor/author.php?objid=$objId", $qrName,QR_ECLEVEL_L, 2, 2);  
 			
 			//se agrega el QR a cada una de las fotos
 			for($i=0;$i<$cantidad;$i++){

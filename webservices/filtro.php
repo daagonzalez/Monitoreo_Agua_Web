@@ -60,7 +60,7 @@
 
 	//se separa la consulta por medio del operador OR para cada uno de los campos presentes generados anteriormente.
 	$consulta = ['$and'=>$consulta];
-	$collection=connectDatabaseCollection('MonitoreaAgua','puntosMuestreo',0);
+	$collection=connectDatabaseCollection('MonitoreoAgua','puntosMuestreo',0);
 	if($collection!=0){
 	  	//se ejecuta la consulta y se guardan los resultados en la variable result.
 		if($ver_todos){
