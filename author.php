@@ -1,8 +1,8 @@
 <?php 
-require '../databaseConnection.php';
+require 'webservices/databaseConnection.php';
 	if($_SERVER["REQUEST_METHOD"]=="GET"){
 		$objId=$_GET['objid'];
-		$collection=connectDatabase('MonitoreaAgua','puntosMuestreo',0);
+		$collection=connectDatabaseCollection('MonitoreoAgua','puntosMuestreo',0);
 
 		$item = $collection->findOne(['_id'=>new MongoDB\BSON\ObjectID($objId)]);
 		$item = iterator_to_array($item);
@@ -13,7 +13,7 @@ require '../databaseConnection.php';
 		$estacion =$item["POI"]['nombre_estacion'];
 		$institucion=$item["POI"]['nombre_institucion'];
 		$author=$item["Muestra"]['usuario'];
-		require 'view_author.php';
+		require 'views/author_view.php';
 	}
 	
  ?>

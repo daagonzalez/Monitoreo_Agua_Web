@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 require 'databaseConnection.php';
 
-$collection=connectDatabaseCollection('MonitoreaAgua','usuarios',1);
+$collection=connectDatabaseCollection('MonitoreoAgua','usuarios',1);
 
 
     $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);

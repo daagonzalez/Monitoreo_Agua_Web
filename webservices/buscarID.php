@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 require 'databaseConnection.php';
 
 
-$collection=connectDatabase('MonitoreaAgua','puntosMuestreo',0);
+$collection=connectDatabase('MonitoreoAgua','puntosMuestreo',0);
 
 
 $_id = $_POST['_id'];

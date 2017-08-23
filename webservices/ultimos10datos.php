@@ -4,7 +4,7 @@ require 'databaseConnection.php';
 
 
 
-    $collection=connectDatabaseCollection('MonitoreaAgua','puntosMuestreo',0);
+    $collection=connectDatabaseCollection('MonitoreoAgua','puntosMuestreo',0);
 
 
     $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);
