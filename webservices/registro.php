@@ -1,12 +1,10 @@
 <?php
-require '../vendor/autoload.php';
-    try {
-        $connection = new MongoDB\Client;
-        $database = $connection->PuntosMuestreo;
-        $collection = $database->usuarios;
-    } catch (MongoConnectionException $e) {
-        echo "Error: " . $e->getMessage();
-    }
+    header('Content-Type: application/json');
+
+    require 'databaseConnection.php';
+    
+    $collection=connectDatabaseCollection('MonitoreaAgua','usuarios',1);
+
 
     $nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
     $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);

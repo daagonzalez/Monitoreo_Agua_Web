@@ -47,7 +47,7 @@ function  insertMarker(){
 //peticion ajax al servidor
   $.ajax({
       async:true,
-      url: "php/getMarkers_busqueda.php",//devuelve un json con los marcadores que están en la base de datos.
+      url: "webservices/getMarkers_busqueda.php",//devuelve un json con los marcadores que están en la base de datos.
       dataType: "json",
       success:pintar
       });
@@ -57,7 +57,7 @@ function  insertMarker(){
 function pintar(jsonData){
   jsonDatosBD=jsonData;//temporal; es solo para que aparezcan los marcadores.
 //se insertan en el mapa los marcadores elegidos
-  for (var i = 0; i < Object.keys(jsonDatosBD).length; i++) {
+  for (var i = 0; i < jsonDatosBD.length; i++) {
 	    markers[i] = new google.maps.Marker({
 	    map: map,
 	    position:jsonDatosBD[i].location,
@@ -120,7 +120,7 @@ $(".btnFiltrarArPOI").click(function(){
                 async:true,
                 data:  parametros,
                 dataType:"json",
-                url:   'php/datosArPOI_busqueda.php',
+                url:   'webservices/datosArPOI_busqueda.php',
                 success:  calcularDiferencia
         });
 	}else{//no se permite
