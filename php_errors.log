@@ -1,0 +1,9 @@
+[23-Aug-2017 05:46:54 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 05:46:54 UTC] PHP Stack trace:
+[23-Aug-2017 05:46:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:0
+[23-Aug-2017 05:46:54 UTC] PHP   2. MongoDB\Client->__construct() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:5
+[23-Aug-2017 05:46:54 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 05:46:54 UTC] PHP Stack trace:
+[23-Aug-2017 05:46:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 05:46:54 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 05:46:54 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:6
