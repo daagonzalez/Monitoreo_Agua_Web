@@ -7,3 +7,100 @@
 [23-Aug-2017 05:46:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
 [23-Aug-2017 05:46:54 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
 [23-Aug-2017 05:46:54 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:6
+[23-Aug-2017 06:04:26 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:04:26 UTC] PHP Stack trace:
+[23-Aug-2017 06:04:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:0
+[23-Aug-2017 06:04:26 UTC] PHP   2. MongoDB\Client->__construct() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:5
+[23-Aug-2017 06:04:26 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:04:26 UTC] PHP Stack trace:
+[23-Aug-2017 06:04:26 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:04:26 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:04:26 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:05:36 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:05:36 UTC] PHP Stack trace:
+[23-Aug-2017 06:05:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:05:36 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:05:36 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:06:51 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:06:51 UTC] PHP Stack trace:
+[23-Aug-2017 06:06:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:06:51 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:06:51 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:07:18 UTC] PHP Warning:  require(..\vendor\autoload.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/webservices/databaseConnection.php on line 6
+[23-Aug-2017 06:07:18 UTC] PHP Stack trace:
+[23-Aug-2017 06:07:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:07:18 UTC] PHP   2. require() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:4
+[23-Aug-2017 06:07:18 UTC] PHP Fatal error:  require(): Failed opening required '..\vendor\autoload.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/webservices/databaseConnection.php on line 6
+[23-Aug-2017 06:07:18 UTC] PHP Stack trace:
+[23-Aug-2017 06:07:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:07:18 UTC] PHP   2. require() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:4
+[23-Aug-2017 06:08:05 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:08:05 UTC] PHP Stack trace:
+[23-Aug-2017 06:08:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:08:05 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:08:05 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:08:29 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:08:29 UTC] PHP Stack trace:
+[23-Aug-2017 06:08:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:08:29 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:08:29 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:12:04 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:12:04 UTC] PHP Stack trace:
+[23-Aug-2017 06:12:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:12:04 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:12:04 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:12:07 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:12:07 UTC] PHP Stack trace:
+[23-Aug-2017 06:12:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:12:07 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:12:07 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:12:07 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:12:07 UTC] PHP Stack trace:
+[23-Aug-2017 06:12:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:12:07 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:12:07 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:12:07 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:12:07 UTC] PHP Stack trace:
+[23-Aug-2017 06:12:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:12:07 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:12:07 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:14:19 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:14:19 UTC] PHP Stack trace:
+[23-Aug-2017 06:14:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:0
+[23-Aug-2017 06:14:19 UTC] PHP   2. MongoDB\Client->__construct() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:5
+[23-Aug-2017 06:14:19 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:14:19 UTC] PHP Stack trace:
+[23-Aug-2017 06:14:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:14:19 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:14:19 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:17:31 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:17:31 UTC] PHP Stack trace:
+[23-Aug-2017 06:17:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:0
+[23-Aug-2017 06:17:31 UTC] PHP   2. MongoDB\Client->__construct() /home/ubuntu/workspace/php/completadoFiltro_busqueda.php:5
+[23-Aug-2017 06:17:31 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:17:31 UTC] PHP Stack trace:
+[23-Aug-2017 06:17:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:17:31 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:17:31 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:17:50 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:17:50 UTC] PHP Stack trace:
+[23-Aug-2017 06:17:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:17:50 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:17:50 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:18:56 UTC] PHP Fatal error:  Class 'MongoDB\Driver\Manager' not found in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Client.php on line 61
+[23-Aug-2017 06:18:56 UTC] PHP Stack trace:
+[23-Aug-2017 06:18:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:0
+[23-Aug-2017 06:18:56 UTC] PHP   2. connectDatabaseCollection() /home/ubuntu/workspace/webservices/getMarkers_busqueda.php:6
+[23-Aug-2017 06:18:56 UTC] PHP   3. MongoDB\Client->__construct() /home/ubuntu/workspace/webservices/databaseConnection.php:10
+[23-Aug-2017 06:42:00 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\ConnectionTimeoutException' with message 'No suitable servers found (`serverSelectionTryOnce` set): [connection closed calling ismaster on 'localhost:27017']' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php:341
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(341): MongoDB\Driver\Manager->selectServer(Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/php/completadoFiltro_busqueda.php(10): MongoDB\Collection->distinct('POI.nombre_inst...')
+#2 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 341
+[23-Aug-2017 06:42:00 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\ConnectionTimeoutException' with message 'No suitable servers found (`serverSelectionTryOnce` set): [connection closed calling ismaster on 'localhost:27017']' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php:185
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(185): MongoDB\Driver\Manager->selectServer(Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/webservices/getMarkers_busqueda.php(12): MongoDB\Collection->aggregate(Array)
+#2 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 185
