@@ -34,3 +34,7 @@
     display: none;
     text-align: center;
 }
+
+.firebaseui-idp-password, .firebaseui-idp-password:hover, .mdl-button.firebaseui-idp-password:active, .mdl-button.firebaseui-idp-password:focus{
+    background-color: #db4437;
+}
