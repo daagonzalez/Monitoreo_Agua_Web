@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif !important;
+    outline: none;
+}
+
+.material-icons{
+    font-family: 'Material Icons' !important;
+}
+
+.button-left-icon{
+    margin-right: 5px; 
+}
+
+/* LOGIN SECTION */
+
+.login-cover{
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-loader{
+
+}
+#logindiv{
+    display: none;
+    text-align: center;
+}
