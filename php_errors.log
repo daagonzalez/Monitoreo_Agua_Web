@@ -128,3 +128,78 @@ Stack trace:
 #1 /home/ubuntu/workspace/webservices/getMarkers_busqueda.php(12): MongoDB\Collection->aggregate(Array)
 #2 {main}
   thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 185
+[01-Sep-2017 04:36:24 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:29 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:30 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:30 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:31 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:31 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:31 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:31 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:32 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:32 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:32 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:36:32 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:37:34 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 8' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('8')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:38:12 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 11' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('11')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11
+[01-Sep-2017 04:38:50 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing ObjectID string: 11' in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php:11
+Stack trace:
+#0 /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php(11): MongoDB\BSON\ObjectID->__construct('11')
+#1 {main}
+  thrown in /home/ubuntu/workspace/webservices/datosArPOI_busqueda.php on line 11

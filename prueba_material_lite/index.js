@@ -1,3 +1,6 @@
+var name, email;
+
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -5,11 +8,23 @@ firebase.auth().onAuthStateChanged(function(user) {
     $("#page_loader").show();
     $(".login-cover").hide();
     
+    
+    name = user.displayName;
+    email = user.email;
+    
+    console.log("Nombre = " + name);
+    console.log("Email = " + email);
+
+    
+    
+    
+    
   } else {
     // No user is signed in.
     
     $("#page_loader").hide();
     $("#logindiv").show();
+    $(".login-cover").show();
     
     var uiConfig = {
         callbacks: {
@@ -27,7 +42,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           firebase.auth.EmailAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
-        tosUrl: '<your-tos-url>'
+        //tosUrl: '<your-tos-url>'
       };
 
       // Initialize the FirebaseUI Widget using Firebase.
@@ -41,10 +56,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-function cerrar_sesion() {
+
+/*
+  LOGOUT PROCESS
+*/
+
+$(".btn-logout").click(
+  function(){
     firebase.auth().signOut().then(function() {
       // Sign-out successful.
     }).catch(function(error) {
       // An error happened.
     });
-}
+  }
+);
+

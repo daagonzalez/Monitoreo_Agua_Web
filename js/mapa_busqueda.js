@@ -9,8 +9,8 @@ var filterMarker;//marcador movible para indicar areas de filtro
 var colors = ["null","blue","green","yellow","orange","red"];//colores asociados a cada calidad
 var calidad = ["null","excelente","buena calidad","aceptable","contaminada","fuertemente contaminada"];//nombres asociados a cada calidad
 var contadorClicks = 0; //evento de aritmetica de POIS, lleva un conteo de los clicks porque solo deben haber dos seleccionados. 
-var idMarker1 = -1;//utilizado para indexar el vector markers al momento de tener dos.
-var idMarker2 = -1;//utilizado para indexar el vector markers al momento de tener dos.
+var first;//utilizado para indexar el vector markers al momento de tener dos.
+var second;//utilizado para indexar el vector markers al momento de tener dos.
 /*para indexar datos traídos de la BD*/ 
 var parametrosObligatorios=["% O2","DBO","pts DBO","NH4","pts NH4"];
 var parametrosOpcionales=["CF","DQO","EC","PO4","GYA","Ph","SD", "Ssed", "SST","SAAM","T","Aforo","ST","pts PSO"];
@@ -77,7 +77,7 @@ function pintar(jsonData){
 
 //----------------------------------------ARITMETICA DE PUNTOS-----------------------------------------------------------------//
 
-function aritmeticaPOIS(marcador) {
+/*function aritmeticaPOIS(marcador) {
   //utilizado para controlar el click al momento de que ya existen marcadores seleccionados o se da click sobre el mismo
 		if(marcador.id==idMarker1){//si se da click sobre uno ya seleccionado
       marcador.setIcon("data/Templatic-map-icons/"+jsonDatosBD[idMarker1].color+".png");
@@ -100,7 +100,7 @@ function aritmeticaPOIS(marcador) {
 			//opcional a futuro
 
 		}
-}
+}*/
 
 //evento para el boton de cerrar el contenedor donde se muestra la información luego de realizar un filtro de dos marcadores
 $("#btnCloseArPOI").click(function(){
@@ -113,8 +113,8 @@ $(".btnFiltrarArPOI").click(function(){
   console.log(filterMarker.position.lat()+","+filterMarker.position.lng());
 	if(contadorClicks==2){//se permite filtrar, aquí se debe traer la información desde la BD.
         var parametros = {
-        	"id1" : jsonDatosBD[idMarker1].id,
-        	"id2" : jsonDatosBD[idMarker2].id
+        	"id1" : jsonDatosBD[first.id].id,
+        	"id2" : jsonDatosBD[second.id].id
         };
         $.ajax({
                 async:true,
@@ -364,3 +364,32 @@ function completar(datos){
   $("#institucion").css( styles );
 }
 
+
+function aritmeticaPOIS(marcador) {
+    if(contadorClicks<2){//Se puede seleccionar otro
+        var iconColor = "data/Templatic-map-icons/default.png";
+        if(contadorClicks==0){//es el primer marcador en ser seleccionado.
+            first=marcador;
+            marcador.setIcon(iconColor);
+            contadorClicks++;
+        }else{//==1
+            if(!(marcador.id==first.id)){//se debe dar clic sobre uno distinto.
+                second=marcador;
+                marcador.setIcon(iconColor);
+                contadorClicks++;
+            }else{//se retorna seleccionar otro ya que se dio clic sonbre el mismo, además no se aumenta el contador
+                //btnWindows.setText(String.valueOf(getString(R.string.seleccionar_otro)));
+            }
+        }
+        //return view;
+    }else{//ya se han seleccionado los dos, se resetean y se llama recursivo para seleccionar el actual. 
+        contadorClicks=0;
+        //se agregó el cambio de marcador para el caso de gris que es el único que es un recurso externo
+        var icon1 = "data/Templatic-map-icons/"+jsonDatosBD[first.id].color+".png";
+        var icon2 = "data/Templatic-map-icons/"+jsonDatosBD[second.id].color+".png";
+
+        first.setIcon(icon1);
+        second.setIcon(icon2);
+        aritmeticaPOIS(marcador);
+    }
+}
