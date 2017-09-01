@@ -130,7 +130,6 @@ $(".btnFiltrarArPOI").click(function(){
 
 
 function calcularDiferencia(datos){
-
   //alert(JSON.stringify(datos[0].POI.location));
   if (datos[0]&&datos[1]) {
     var elevator = new google.maps.ElevationService;
@@ -152,7 +151,7 @@ function calcularDiferencia(datos){
             puntoBajo=0;
           }
           var texto="";
-          texto=texto+"<h1 class='tituloArPOI'>Diferencia entre punto más alto y el más bajo</h1>";
+          texto=texto+"<h1 class='tituloArPOI'>Aritmética de POI's</h1>";
           texto=texto+"<h6 class='tituloArPOI'><b>Punto más alto:</b> "+results[puntoAlto].elevation+" msnm";
           texto=texto+". <b>Ubicación:</b> "+datos[puntoAlto].POI.nombre_institucion;
           texto=texto+" <b>Estación:</b> "+datos[puntoAlto].POI.nombre_estacion+"<br>";
@@ -160,47 +159,34 @@ function calcularDiferencia(datos){
           texto=texto+"<br> <b>Punto más bajo:</b> "+results[puntoBajo].elevation+" msnm";
           texto=texto+". <b>Ubicación:</b> "+datos[puntoBajo].POI.nombre_institucion;
           texto=texto+" <b>Estación:</b> "+datos[puntoBajo].POI.nombre_estacion+"</h6>";
-          texto=texto+"<br><h2 class='datosOblogatorios'>Datos obligatorios</h2> <br>";
           texto=texto+"<table class='tablaArPOI'><tr><th>Elemento</th><th>Sitio 1</th> <th>Sitio 2</th><th>Resultado</th><th>%</th></tr>";
-          for (var i = 0; i < parametrosObligatorios.length; i++) {
-            var dataPOI1=datos[puntoBajo].Muestra.obligatorios[parametrosObligatorios[i]];
-            var dataPOI2=datos[puntoAlto].Muestra.obligatorios[parametrosObligatorios[i]];
-            if(dataPOI1&&dataPOI2){
-            var dif=dataPOI1-dataPOI2;
+          
+          //se obtienen los parametros obligatorios y opcionales para cada uno.
+          var POIOne={};
+          var POITwo={};
+          // using jQuery extend to join documents
+          $.extend(POIOne, datos[puntoBajo].Muestra.obligatorios, datos[puntoBajo].Muestra.opcionales);
+          $.extend(POITwo, datos[puntoAlto].Muestra.obligatorios, datos[puntoAlto].Muestra.opcionales);
+          //la lógica es iterar sobre los datos de un punto y buscar si existe ese valor en el otro para restarlo
+          for (var key in POIOne){//Se itera sobre cada uno de los elementos
+            if(POITwo[key]){//Si el parametro del primero también está en los obligatorios del segundo.
+              var dif = POIOne[key]-POITwo[key];
               if(!isNaN(dif)){
               	dif = dif.toFixed(2);
-              	var percent=((dataPOI1/dataPOI2)*100).toFixed(0);
-                texto=texto+"<tr>"+"<td>"+parametrosObligatorios[i]+"</td>"+"<td>"+dataPOI1+"</td>"+"<td>"+dataPOI2+"</td>"+"<td>"+dif+"</td>"+"<td>"+percent+"</td>"+"</tr>";
+              	var percent=((POIOne[key]/POITwo[key])*100).toFixed(0);
+                texto=texto+"<tr>"+"<td>"+key+"</td>"+"<td>"+POIOne[key]+"</td>"+"<td>"+POITwo[key]+"</td>"+"<td>"+dif+"</td>"+"<td>"+percent+"</td>"+"</tr>";
               }
             }
           }
+          
           texto=texto+"</table>";
-          texto=texto+"<br><h2 class='datosOpcionales'>Datos opcionales</h2> <br>";
-          texto=texto+"<table class='tablaArPOI'><tr><th>Elemento</th><th>Sitio 1</th><th>Sitio 2</th><th>Resultado</th></th><th>%</th></tr>";
-          for (var i = 0; i < parametrosOpcionales.length; i++) {
-            var dataPOI1=datos[0].Muestra.opcionales[parametrosOpcionales[i]];
-            var dataPOI2=datos[1].Muestra.opcionales[parametrosOpcionales[i]];
-            if(dataPOI1&&dataPOI2){
-              var dif=dataPOI1-dataPOI2;
-              if(!isNaN(dif)){
-              	dif = dif.toFixed(2);
-              	var percent=((dataPOI1/dataPOI2)*100).toFixed(0);
-                texto=texto+"<tr>"+"<td>"+parametrosOpcionales[i]+"</td>"+"<td>"+dataPOI1+"</td>"+"<td>"+dataPOI2+"</td>"+"<td>"+dif+"</td>"+"<td>"+percent+"</td>"+"</tr>";
-              }
-            }
-          }
+
           $(".contenidoArPOIShort").append(texto);
           $(".arPOIBig").css("display","block");
         }
     });
   }
 }
-/*    var data1=JSON.stringify(datos[0]);
-    var data2=JSON.stringify(datos[1]);
-    $(".contenidoArPOIShort").text("");
-    $(".contenidoArPOIShort").append("<h1>Datos del primer marcador</h1><br>"+data1+"<br>");
-    $(".contenidoArPOIShort").append("<h1>Datos del segundo marcador</h1><br>"+data2+"<br>");*/
-
 
 //---------------------------------------EVENTOS DE LOS BOTONES DENTRO DE LA PÁGINA------------------------------------------------------------------//
 
