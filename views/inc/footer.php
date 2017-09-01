@@ -1,3 +1,4 @@
+  
   <footer class="mdl-mini-footer">
   <div class="mdl-mini-footer__left-section">
     <div class="mdl-logo">
@@ -8,9 +9,9 @@
       <li><a href="#">Términos y Condiciones</a></li>
     </ul>
   </div>
-    
+  </footer>
+</main>
   </div>
-
   <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -24,13 +25,9 @@
   };
   firebase.initializeApp(config);
 </script>  
-
-
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
   <script src="js/index.js"></script>
     
-</body>
-</html>
