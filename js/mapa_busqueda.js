@@ -6,18 +6,17 @@ var map; //mapa general
 var markers=[];//marcadores indicadores de calidad del agua
 var niveles=[];//es paralelo a vector de marcadores acá se guardan las calidades del agua del marcador i, se utiliza para buscar sobre él y no sobre los marcadores
 var filterMarker;//marcador movible para indicar areas de filtro
-var colors = ["null","blue","green","yellow","orange","red"];//colores asociados a cada calidad
-var calidad = ["null","excelente","buena calidad","aceptable","contaminada","fuertemente contaminada"];//nombres asociados a cada calidad
+//var colors = ["null","blue","green","yellow","orange","red"];//colores asociados a cada calidad
+//var calidad = ["null","excelente","buena calidad","aceptable","contaminada","fuertemente contaminada"];//nombres asociados a cada calidad
+//Esta varible es muy importante ya que indica y controla los eventos de clic sobre los marcadores. Para saber en que estado está la selección.
 var contadorClicks = 0; //evento de aritmetica de POIS, lleva un conteo de los clicks porque solo deben haber dos seleccionados. 
-var first;//utilizado para indexar el vector markers al momento de tener dos.
-var second;//utilizado para indexar el vector markers al momento de tener dos.
+var first;//Respaldo para mantener el marcador en ser presionado primero.
+var second;//Respaldo para mantener el marcador en ser presionado segundo.
 /*para indexar datos traídos de la BD*/ 
-var parametrosObligatorios=["% O2","DBO","pts DBO","NH4","pts NH4"];//no utilizado
-var parametrosOpcionales=["CF","DQO","EC","PO4","GYA","Ph","SD", "Ssed", "SST","SAAM","T","Aforo","ST","pts PSO"];//no utilizado
-var contentVerMasP1="<div><a href=";
-var contentVerMasP2=">Ver mas</a></div>";
-var contentCalcularDiferenciaP1="<div><a href=";
-var contentCalcularDiferenciaP2=">Calcular diferencia</a></div>";
+//var parametrosObligatorios=["% O2","DBO","pts DBO","NH4","pts NH4"];//no utilizado
+//var parametrosOpcionales=["CF","DQO","EC","PO4","GYA","Ph","SD", "Ssed", "SST","SAAM","T","Aforo","ST","pts PSO"];//no utilizado
+var contentVerMas="<div><button class='btn btn-primary' style='width:200px' onclick='mostrarVerMas()'>Ver muestra</button></div>";
+var contentCalcularDiferencia= "<div><button class='btn btn-primary' style='width:200px'onclick='mostrarVerMas()'>Ver muestra</button><br><button class='btn btn-success' style='width:200px' onclick='mostrarAritmetica()'>Calcular diferencia</button></div>";
 //variable que se inicializa al cargar el init map, indican la ventana de información a ser cargada.
 var infowindowVerMas;
 var infowindowCalcularDiferencia;
@@ -47,9 +46,7 @@ function initMap() {
   infowindowCalcularDiferencia = new google.maps.InfoWindow();
 	 //inserción de todos los marcadores presentes en la BD
 	 insertMarker();
-	//map.addListener('click', function(e) {
-	  //placeMarkerAndPanTo(e.latLng, map);
-	//});
+
 	  //evento para limpiar el mapa.
 	  map.addListener('click', function(e) {
       //mayor a cero indica que hay algun marcador seleccionado.
@@ -115,18 +112,16 @@ function aritmeticaPOIS(marcador) {
             //se cambia el color del marcador
             marcador.setIcon(iconColor);
             //se abre la ventana de informacion para ver más
-            var content = contentVerMasP1+"id="+jsonDatosBD[first.id].id+""+contentVerMasP2;
-            infowindowVerMas.setContent(content);                              
+            infowindowVerMas.setContent(contentVerMas);                              
             infowindowVerMas.open(map, marcador); 
             contadorClicks++;
         }else{//==1
             if(!(marcador.id==first.id)){//se debe dar clic sobre uno distinto.
                 second=marcador;
                 marcador.setIcon(iconColor);
-                var content = contentCalcularDiferenciaP1+"id1="+jsonDatosBD[first.id].id+"&id2="+jsonDatosBD[second.id].id+""+contentCalcularDiferenciaP2;
                 //se cierra el marcador de ver más
                 infowindowVerMas.close();
-                infowindowCalcularDiferencia.setContent(content);                              
+                infowindowCalcularDiferencia.setContent(contentCalcularDiferencia);                              
                 infowindowCalcularDiferencia.open(map, marcador);                 
                 contadorClicks++;
             }else{//se retorna seleccionar otro ya que se dio clic sonbre el mismo, además no se aumenta el contador
@@ -147,30 +142,6 @@ function aritmeticaPOIS(marcador) {
         aritmeticaPOIS(marcador);
     }
 }
-/*function aritmeticaPOIS(marcador) {
-  //utilizado para controlar el click al momento de que ya existen marcadores seleccionados o se da click sobre el mismo
-		if(marcador.id==idMarker1){//si se da click sobre uno ya seleccionado
-      marcador.setIcon("data/Templatic-map-icons/"+jsonDatosBD[idMarker1].color+".png");
-      contadorClicks--;
-			idMarker1=-1;
-		}else if(marcador.id==idMarker2){//si se da click sobre uno ya seleccionado
-      marcador.setIcon("data/Templatic-map-icons/"+jsonDatosBD[idMarker2].color+".png");
-      contadorClicks--;
-			idMarker2=-1;
-			//utilizado para controlar el click valido.
-		}else if(contadorClicks==0){//es el primer click que se hace.
-      contadorClicks++;
-			idMarker1=marcador.id;
-			marcador.setIcon("data/Templatic-map-icons/default.png");
-		}else if(contadorClicks==1){
-      contadorClicks++;
-      (idMarker2!=-1)?idMarker1=marcador.id:idMarker2=marcador.id;//caso especifico en el que se selecciona el primer marcador luego otro, después se quita la selección del primero y se vuelve a seleccionar cayendo en este caso donde se le daba el valor de idMarker2 el cual ya estaba dado. 
-			marcador.setIcon("data/Templatic-map-icons/default.png");
-		}else{//caso en que ya se han insertado ambos se le debe caer encima a alguno de los dos.
-			//opcional a futuro
-
-		}
-}*/
 
 //evento para el boton de cerrar el contenedor donde se muestra la información luego de realizar un filtro de dos marcadores
 $("#btnCloseArPOI").click(function(){
@@ -178,10 +149,11 @@ $("#btnCloseArPOI").click(function(){
   $(".contenidoArPOIShort").text("");
 });
 
-//evento de boton filtrar, se comprueba que existan dos marcadores seleccionados.
-$(".btnFiltrarArPOI").click(function(){
-  console.log(filterMarker.position.lat()+","+filterMarker.position.lng());
-	if(contadorClicks==2){//se permite filtrar, aquí se debe traer la información desde la BD.
+
+
+//=================Función utilizada para mostrar la ventana con la información correspondiente al calculo de la diferencia entre los dos puntos seleccionados======
+function mostrarAritmetica() {
+  	if(contadorClicks==2){//se permite filtrar, aquí se debe traer la información desde la BD.
         var parametros = {
         	"id1" : jsonDatosBD[first.id].id,
         	"id2" : jsonDatosBD[second.id].id
@@ -196,7 +168,8 @@ $(".btnFiltrarArPOI").click(function(){
 	}else{//no se permite
 		alert("debe seleccionar dos marcadores");
 	}
-});
+}
+
 
 
 function calcularDiferencia(datos){
@@ -257,6 +230,55 @@ function calcularDiferencia(datos){
     });
   }
 }
+
+//=================Función utilizada para mostrar los datos asociados a un marcador======
+function mostrarVerMas() {
+  var identificador = contadorClicks==2?jsonDatosBD[second.id].id:jsonDatosBD[first.id].id;
+  var parametros = {
+  	"id1" : identificador
+  };
+  $.ajax({
+          async:true,
+          data:  parametros,
+          dataType:"json",
+          url: "webservices/datosMarker_busqueda.php",
+          success:  calcularVerMas
+  });
+}
+
+
+
+function calcularVerMas(datos){
+  
+  var muestra = datos[0].Muestra;
+  var POI = datos[0].POI;
+  var texto="<h2>Datos asociados a la muestra seleccionada</h2><br><br>";
+  texto=texto+"<table class='tablaArPOI'>";
+  texto = texto+"<tr><th colspan='2'>Datos generales</th></tr>"
+    for (var key in muestra){//Se itera sobre cada uno de los elementos
+      if(key!="obligatorios"&&key!="opcionales"){
+          texto=texto+"<tr><td>"+key+"</td><td>"+muestra[key]+"</td></tr>";
+      }else if(key=='obligatorios'){
+        texto = texto+"<tr><th colspan='2'>Datos obligatorios</th></tr>"
+        var obligatorios = muestra['obligatorios'];
+        for(var key in obligatorios){
+          texto=texto+"<tr><td>"+key+"</td><td>"+obligatorios[key]+"</td></tr>";
+        }
+      }else{//opcionales
+        texto = texto+"<tr><th colspan='2'>Datos opcionales</th></tr>"
+        var opcionales = muestra['obligatorios'];
+        for(var key in obligatorios){
+          texto=texto+"<tr><td>"+key+"</td><td>"+opcionales[key]+"</td></tr>";
+        }        
+      }
+    }  
+  texto=texto+"</table>";
+  
+  $(".contenidoArPOIShort").append(texto);
+  $(".arPOIBig").css("display","block");
+}
+
+
 
 //---------------------------------------EVENTOS DE LOS BOTONES DENTRO DE LA PÁGINA------------------------------------------------------------------//
 
