@@ -12,8 +12,17 @@ var contadorClicks = 0; //evento de aritmetica de POIS, lleva un conteo de los c
 var first;//utilizado para indexar el vector markers al momento de tener dos.
 var second;//utilizado para indexar el vector markers al momento de tener dos.
 /*para indexar datos traídos de la BD*/ 
-var parametrosObligatorios=["% O2","DBO","pts DBO","NH4","pts NH4"];
-var parametrosOpcionales=["CF","DQO","EC","PO4","GYA","Ph","SD", "Ssed", "SST","SAAM","T","Aforo","ST","pts PSO"];
+var parametrosObligatorios=["% O2","DBO","pts DBO","NH4","pts NH4"];//no utilizado
+var parametrosOpcionales=["CF","DQO","EC","PO4","GYA","Ph","SD", "Ssed", "SST","SAAM","T","Aforo","ST","pts PSO"];//no utilizado
+var contentVerMasP1="<div><a href=";
+var contentVerMasP2=">Ver mas</a></div>";
+var contentCalcularDiferenciaP1="<div><a href=";
+var contentCalcularDiferenciaP2=">Calcular diferencia</a></div>";
+//variable que se inicializa al cargar el init map, indican la ventana de información a ser cargada.
+var infowindowVerMas;
+var infowindowCalcularDiferencia;
+
+
 //-----------------------------------------INICIALIZACION DEL MAPA----------------------------------------------------------------//
 function initMap() {
 
@@ -33,12 +42,34 @@ function initMap() {
 	    title:"colocar en area de filtro",
 	    position:{"lat":9.928119,"lng":-84.107810}
 	  });
-
+	  //se inicializan las ventanas de información
+  infowindowVerMas = new google.maps.InfoWindow();
+  infowindowCalcularDiferencia = new google.maps.InfoWindow();
 	 //inserción de todos los marcadores presentes en la BD
 	 insertMarker();
 	//map.addListener('click', function(e) {
 	  //placeMarkerAndPanTo(e.latLng, map);
 	//});
+	  //evento para limpiar el mapa.
+	  map.addListener('click', function(e) {
+      //mayor a cero indica que hay algun marcador seleccionado.
+      if(contadorClicks>0){
+        if(contadorClicks==1){//solamente existe uno en seleccion
+          //se agregó el cambio de marcador para el caso de gris que es el único que es un recurso externo
+          var icon1 = "data/Templatic-map-icons/"+jsonDatosBD[first.id].color+".png";
+          infowindowVerMas.close();
+          first.setIcon(icon1);
+        }else{//ambos están selecionados
+          //se agregó el cambio de marcador para el caso de gris que es el único que es un recurso externo
+          var icon1 = "data/Templatic-map-icons/"+jsonDatosBD[first.id].color+".png";
+          var icon2 = "data/Templatic-map-icons/"+jsonDatosBD[second.id].color+".png";
+          first.setIcon(icon1);
+          second.setIcon(icon2);
+          infowindowCalcularDiferencia.close();
+        }
+        contadorClicks=0;
+      }   
+  });
 }
 
 //------------------------------------------MOSTRAR LOS MARCADORES EN EL MAPA---------------------------------------------------------------//
@@ -76,7 +107,46 @@ function pintar(jsonData){
 }
 
 //----------------------------------------ARITMETICA DE PUNTOS-----------------------------------------------------------------//
+function aritmeticaPOIS(marcador) {
+    if(contadorClicks<2){//Se puede seleccionar otro
+        var iconColor = "data/Templatic-map-icons/default.png";
+        if(contadorClicks==0){//es el primer marcador en ser seleccionado.
+            first=marcador;
+            //se cambia el color del marcador
+            marcador.setIcon(iconColor);
+            //se abre la ventana de informacion para ver más
+            var content = contentVerMasP1+"id="+jsonDatosBD[first.id].id+""+contentVerMasP2;
+            infowindowVerMas.setContent(content);                              
+            infowindowVerMas.open(map, marcador); 
+            contadorClicks++;
+        }else{//==1
+            if(!(marcador.id==first.id)){//se debe dar clic sobre uno distinto.
+                second=marcador;
+                marcador.setIcon(iconColor);
+                var content = contentCalcularDiferenciaP1+"id1="+jsonDatosBD[first.id].id+"&id2="+jsonDatosBD[second.id].id+""+contentCalcularDiferenciaP2;
+                //se cierra el marcador de ver más
+                infowindowVerMas.close();
+                infowindowCalcularDiferencia.setContent(content);                              
+                infowindowCalcularDiferencia.open(map, marcador);                 
+                contadorClicks++;
+            }else{//se retorna seleccionar otro ya que se dio clic sonbre el mismo, además no se aumenta el contador
+                //btnWindows.setText(String.valueOf(getString(R.string.seleccionar_otro)));
+            }
+        }
+        //return view;
+    }else{//ya se han seleccionado los dos, se resetean y se llama recursivo para seleccionar el actual. 
+        //En este punto está abierta la ventana de información de calcular diferencia; se debe cerrar.
+        infowindowCalcularDiferencia.close();
+        contadorClicks=0;
+        //se agregó el cambio de marcador para el caso de gris que es el único que es un recurso externo
+        var icon1 = "data/Templatic-map-icons/"+jsonDatosBD[first.id].color+".png";
+        var icon2 = "data/Templatic-map-icons/"+jsonDatosBD[second.id].color+".png";
 
+        first.setIcon(icon1);
+        second.setIcon(icon2);
+        aritmeticaPOIS(marcador);
+    }
+}
 /*function aritmeticaPOIS(marcador) {
   //utilizado para controlar el click al momento de que ya existen marcadores seleccionados o se da click sobre el mismo
 		if(marcador.id==idMarker1){//si se da click sobre uno ya seleccionado
@@ -351,31 +421,3 @@ function completar(datos){
 }
 
 
-function aritmeticaPOIS(marcador) {
-    if(contadorClicks<2){//Se puede seleccionar otro
-        var iconColor = "data/Templatic-map-icons/default.png";
-        if(contadorClicks==0){//es el primer marcador en ser seleccionado.
-            first=marcador;
-            marcador.setIcon(iconColor);
-            contadorClicks++;
-        }else{//==1
-            if(!(marcador.id==first.id)){//se debe dar clic sobre uno distinto.
-                second=marcador;
-                marcador.setIcon(iconColor);
-                contadorClicks++;
-            }else{//se retorna seleccionar otro ya que se dio clic sonbre el mismo, además no se aumenta el contador
-                //btnWindows.setText(String.valueOf(getString(R.string.seleccionar_otro)));
-            }
-        }
-        //return view;
-    }else{//ya se han seleccionado los dos, se resetean y se llama recursivo para seleccionar el actual. 
-        contadorClicks=0;
-        //se agregó el cambio de marcador para el caso de gris que es el único que es un recurso externo
-        var icon1 = "data/Templatic-map-icons/"+jsonDatosBD[first.id].color+".png";
-        var icon2 = "data/Templatic-map-icons/"+jsonDatosBD[second.id].color+".png";
-
-        first.setIcon(icon1);
-        second.setIcon(icon2);
-        aritmeticaPOIS(marcador);
-    }
-}
