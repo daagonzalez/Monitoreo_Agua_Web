@@ -1,5 +1,5 @@
 se debe instalar con pecl
-sudo pecl install mongodb
+sudo pecl install mongodb //Si no reconoce mongod... se debe instalar también sudo apt-get install mongodb-org
 Luego habilitar la extension en php.ini
 extension=mongodb.so
 Crear un archivo de inicio por ejemplo mongod y escribir en el:
