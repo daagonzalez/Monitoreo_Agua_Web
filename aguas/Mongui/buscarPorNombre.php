@@ -11,7 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $datos  = Mongui::getPorNombre($nombre);
     if ((string) $datos->getID() != '') {
       //Si el ID de lo obtenido no es nulo
-      print json_encode(iterator_to_array($datos));
+      $datos = iterator_to_array($datos);
+    
+      foreach($datos as $item){
+      	if(isset($item->Muestra->val_indice)){
+      	  unset($item->Muestra->val_indice);
+        }
+      }
+      
+      echo json_encode($datos);
+      
     } else {
       print json_encode(
         array(
@@ -27,4 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     );
   }
 }
+
+
+
+
+
 ?>
+ 

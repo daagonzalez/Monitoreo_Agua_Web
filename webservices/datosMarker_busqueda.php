@@ -16,7 +16,6 @@
 				unset($item[0]->Muestra->val_indice);
 			}
 			echo json_encode($item);
-
 		}
 	}
 ?>

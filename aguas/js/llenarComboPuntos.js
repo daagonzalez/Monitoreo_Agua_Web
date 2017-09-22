@@ -3,8 +3,10 @@
 * @param Campo del JSON de puntos con un punto específico
 * @return la tag que representa la opción del punto ingresado
 **/
+
+
 function llenarComboPunto(Punto) {
-	return "<option value=\"" + Punto.nombre + "\">" + Punto.nombre + "</option>"
+	return "<option value=\"" + Punto.POI.nombre_estacion + "\">" + Punto.POI.nombre_estacion + "</option>"
 }
 
 /**
@@ -14,10 +16,11 @@ function llenarComboPunto(Punto) {
 * @return El HTML con el comboBox
 **/
 function parsearPuntos(puntos,html) {
+	
 	var nombres = [];
 	for (var i = 0; i < puntos.length; i++) {
-		if (!nombres.includes(puntos[i].nombre)) {
-			nombres.push(puntos[i].nombre);
+		if (!nombres.includes(puntos[i].POI.nombre_estacion)) {
+			nombres.push(puntos[i].POI.nombre_estacion);
 			html += llenarComboPunto(puntos[i]);
 		}
 	}
@@ -42,8 +45,16 @@ function llenarComboParametro(Parametro) {
 function parsearParametros(parametros,html) {
 	var lParametros = [];
 	for (var i = 0; i < parametros.length; i++) {
-		for (var key in parametros[i]) {
-			if (typeof parametros[i][key] == 'number') {
+		for (var key in parametros[i].Muestra.obligatorios) {
+			if (typeof parametros[i].Muestra.obligatorios[key] == 'number') {
+				if (!lParametros.includes(key)) {
+					lParametros.push(key);
+					html += llenarComboParametro(key);
+				}
+			}
+		}
+		for (var key in parametros[i].Muestra.opcionales) {
+			if (typeof parametros[i].Muestra.opcionales[key] == 'number') {
 				if (!lParametros.includes(key)) {
 					lParametros.push(key);
 					html += llenarComboParametro(key);

@@ -112,3 +112,28 @@ Stack trace:
 [17-Sep-2017 02:32:05 UTC] PHP Fatal error:  Call to a member function getID() on a non-object in /home/ubuntu/workspace/aguas/Mongui/getPuntos.php on line 21
 [17-Sep-2017 02:32:05 UTC] PHP Stack trace:
 [17-Sep-2017 02:32:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/getPuntos.php:0
+[19-Sep-2017 17:15:56 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\ConnectionTimeoutException' with message 'No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php:435
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(435): MongoDB\Driver\Manager->selectServer(Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/aguas/Mongui/getPuntos.php(17): MongoDB\Collection->find()
+#2 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 435
+[19-Sep-2017 17:15:56 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\ConnectionTimeoutException' with message 'No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php:435
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(435): MongoDB\Driver\Manager->selectServer(Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/aguas/Mongui/getPuntos.php(17): MongoDB\Collection->find()
+#2 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 435
+[22-Sep-2017 01:08:53 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting ',' or ';' in /home/ubuntu/workspace/aguas/Mongui/getPuntos.php on line 26
+[22-Sep-2017 01:22:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/aguas/Mongui/getPuntos.php on line 29
+[22-Sep-2017 01:22:22 UTC] PHP Stack trace:
+[22-Sep-2017 01:22:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/getPuntos.php:0
+[22-Sep-2017 01:22:22 UTC] PHP Catchable fatal error:  Argument 1 passed to iterator_to_array() must implement interface Traversable, array given in /home/ubuntu/workspace/aguas/Mongui/getPuntos.php on line 45
+[22-Sep-2017 01:22:22 UTC] PHP Stack trace:
+[22-Sep-2017 01:22:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/getPuntos.php:0
+[22-Sep-2017 01:23:01 UTC] PHP Catchable fatal error:  Argument 1 passed to iterator_to_array() must implement interface Traversable, array given in /home/ubuntu/workspace/aguas/Mongui/getPuntos.php on line 45
+[22-Sep-2017 01:23:01 UTC] PHP Stack trace:
+[22-Sep-2017 01:23:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/getPuntos.php:0
+[22-Sep-2017 01:23:34 UTC] PHP Catchable fatal error:  Argument 1 passed to iterator_to_array() must implement interface Traversable, array given in /home/ubuntu/workspace/aguas/Mongui/getPuntos.php on line 45
+[22-Sep-2017 01:23:34 UTC] PHP Stack trace:
+[22-Sep-2017 01:23:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/getPuntos.php:0

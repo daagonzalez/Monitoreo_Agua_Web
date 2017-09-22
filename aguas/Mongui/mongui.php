@@ -1,14 +1,13 @@
 <?php
 //require 'Database.php';
 
-  header('Content-Type: application/json');
-  
-  $interDir='';
-  require $_SERVER['DOCUMENT_ROOT'].$interDir.'/webservices/databaseConnection.php';
+header('Content-Type: application/json');
+ 
+$interDir='';
 
-	
+require $_SERVER['DOCUMENT_ROOT'].$interDir.'/webservices/databaseConnection.php';
 
-  $collection = null;
+$collection = null;
 
 class Mongui
 {
@@ -42,8 +41,8 @@ class Mongui
       $collection=connectDatabaseCollection('MonitoreoAgua','puntosMuestreo',0);
       $fInicial   = new MongoDB\BSON\UTCDateTime($fI);
       $fFinal     = new MongoDB\BSON\UTCDateTime($fF);
-      $query      = array('fecha' => array('$gt' => $fInicial, '$lte' => $fFinal));
-      $options    = ['sort' => ['fecha' => 1]];
+      $query      = array('Muestra.fecha' => array('$gt' => $fInicial, '$lte' => $fFinal));
+      $options    = ['sort' => ['Muestra.fecha' => 1]];
 
       $cursor = $collection->find($query, $options);
       return ($cursor);
@@ -58,8 +57,8 @@ class Mongui
     {
       //$collection = Database::getInstance()->getDb()->sitiosMuestreo;
       $collection=connectDatabaseCollection('MonitoreoAgua','puntosMuestreo',0);
-      $query      = array('nombre' => $nombre);
-      $options    = ['sort' => ['fecha' => 1]];
+      $query      = array('POI.nombre_estacion' => $nombre);
+      $options    = ['sort' => ['Muestra.fecha' => 1]];
 
       $cursor = $collection->find($query, $options);
       return ($cursor);

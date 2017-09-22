@@ -261,6 +261,7 @@ function graficar(tConsulta) {
 			}
 		});
 	}
+	console.log(arrayOfObjects);
 
 	/**
 	* Llena los arreglos con los valores según los parámetros elegidos
@@ -271,7 +272,7 @@ function graficar(tConsulta) {
 		var aux2 = [];
 		for (var i = 0; i < arrayOfObjects.length; i++) {
 			var object = arrayOfObjects[i];
-			if (object.nombre == nombre) {
+			if (object.POI.nombre_estacion == nombre) {
 				aux.push(object[parametro]);
 				aux2.push(object[parametro2]);
 			}
@@ -287,13 +288,13 @@ function graficar(tConsulta) {
 	**/
 	for (var i = 0; i < arrayOfObjects.length; i++) {
 		var object = arrayOfObjects[i];
-		if (!nombres.includes(object.nombre)) {
-			nombres.push(object.nombre);
+		if (!nombres.includes(object.POI.nombre_estacion)) {
+			nombres.push(object.POI.nombre_estacion);
 		}
-		if (!fechasN.includes(Number(object.fecha.$date.$numberLong))) {
-			fechasN.push(Number(object.fecha.$date.$numberLong));
+		if (!fechasN.includes(Number(object.Muestra.fecha.$date.$numberLong))) {
+			fechasN.push(Number(object.Muestra.fecha.$date.$numberLong));
 		}
-		var fechaObj = new Date(Number(object.fecha.$date.$numberLong));
+		var fechaObj = new Date(Number(object.Muestra.fecha.$date.$numberLong));
 		fechaObj.setHours(fechaObj.getHours()+24);
 		var fechai = fechaObj.toDateString();
 		if (!fechas.includes(fechai)) {
