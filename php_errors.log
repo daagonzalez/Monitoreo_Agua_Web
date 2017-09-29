@@ -400,3 +400,32 @@ Stack trace:
 #1 /home/ubuntu/workspace/webservices/getMarkers_busqueda.php(12): MongoDB\Collection->aggregate(Array)
 #2 {main}
   thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 185
+[29-Sep-2017 06:34:37 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, boolean given in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 21
+[29-Sep-2017 06:34:37 UTC] PHP Stack trace:
+[29-Sep-2017 06:34:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[29-Sep-2017 06:34:37 UTC] PHP   2. date_format() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:21
+[29-Sep-2017 06:35:00 UTC] PHP Warning:  date_format() expects parameter 1 to be DateTimeInterface, object given in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 21
+[29-Sep-2017 06:35:00 UTC] PHP Stack trace:
+[29-Sep-2017 06:35:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[29-Sep-2017 06:35:00 UTC] PHP   2. date_format() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:21
+[29-Sep-2017 06:41:25 UTC] PHP Warning:  MongoDB\BSON\UTCDateTime::toDateTime() expects exactly 0 parameters, 1 given in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 20
+[29-Sep-2017 06:41:25 UTC] PHP Stack trace:
+[29-Sep-2017 06:41:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[29-Sep-2017 06:41:25 UTC] PHP   2. MongoDB\BSON\UTCDateTime->toDateTime() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:20
+[29-Sep-2017 06:41:25 UTC] PHP Fatal error:  Call to a member function format() on a non-object in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 20
+[29-Sep-2017 06:41:25 UTC] PHP Stack trace:
+[29-Sep-2017 06:41:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[29-Sep-2017 06:41:27 UTC] PHP Warning:  MongoDB\BSON\UTCDateTime::toDateTime() expects exactly 0 parameters, 1 given in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 20
+[29-Sep-2017 06:41:27 UTC] PHP Stack trace:
+[29-Sep-2017 06:41:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[29-Sep-2017 06:41:27 UTC] PHP   2. MongoDB\BSON\UTCDateTime->toDateTime() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:20
+[29-Sep-2017 06:41:27 UTC] PHP Fatal error:  Call to a member function format() on a non-object in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 20
+[29-Sep-2017 06:41:27 UTC] PHP Stack trace:
+[29-Sep-2017 06:41:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[29-Sep-2017 06:41:34 UTC] PHP Warning:  MongoDB\BSON\UTCDateTime::toDateTime() expects exactly 0 parameters, 1 given in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 20
+[29-Sep-2017 06:41:34 UTC] PHP Stack trace:
+[29-Sep-2017 06:41:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[29-Sep-2017 06:41:34 UTC] PHP   2. MongoDB\BSON\UTCDateTime->toDateTime() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:20
+[29-Sep-2017 06:41:34 UTC] PHP Fatal error:  Call to a member function format() on a non-object in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 20
+[29-Sep-2017 06:41:34 UTC] PHP Stack trace:
+[29-Sep-2017 06:41:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0

@@ -1,5 +1,6 @@
 var datosGrafico = "";
 var indFechaAct = 0;
+var tamannofechas = 0;
 var elGrafico;
 var datosBurbuja = [];
 var fechas = [];
@@ -243,7 +244,7 @@ function graficar(tConsulta) {
 		//Si se quiere graficar por punto de muestreo
 		var lugar = document.getElementById("punto").value;
 		$.ajax({
-			url: "Mongui/buscarPorNombre.php?nombre=" + lugar,
+			url: "Mongui/buscarPorNombre.php?nombre=" + lugar + "&par1=" + parametro +"&par2=" + parametro2,
 			async: false,
 			dataType: 'json',
 			success: function(data) {
@@ -253,7 +254,7 @@ function graficar(tConsulta) {
 	} else {
 		//Si se quiere graficar por rango de fechas
 		$.ajax({
-			url: "Mongui/buscarPorFechas.php?fechaIni=" + fechaIni + "&fechaFin=" + fechaFin,
+			url: "Mongui/buscarPorFechas.php?fechaIni=" + fechaIni + "&fechaFin=" + fechaFin + "&par1=" + parametro +"&par2=" + parametro2,
 			async: false,
 			dataType: 'json',
 			success: function(data) {
@@ -273,8 +274,16 @@ function graficar(tConsulta) {
 		for (var i = 0; i < arrayOfObjects.length; i++) {
 			var object = arrayOfObjects[i];
 			if (object.POI.nombre_estacion == nombre) {
-				aux.push(object[parametro]);
-				aux2.push(object[parametro2]);
+				if(object.Muestra.obligatorios.hasOwnProperty(parametro)){
+					aux[fechasN.indexOf(Number(object.Muestra.fecha.$date.$numberLong))] = object.Muestra.obligatorios[parametro];
+					aux2[fechasN.indexOf(Number(object.Muestra.fecha.$date.$numberLong))] = object.Muestra.obligatorios[parametro2];
+				}else if(object.Muestra.opcionales.hasOwnProperty(parametro)){
+					aux[fechasN.indexOf(Number(object.Muestra.fecha.$date.$numberLong))] = object.Muestra.opcionales[parametro];
+					aux2[fechasN.indexOf(Number(object.Muestra.fecha.$date.$numberLong))] = object.Muestra.opcionales[parametro2];
+				}else{
+					aux[fechasN.indexOf(Number(object.Muestra.fecha.$date.$numberLong))] = "Sin Dato";
+					aux2[fechasN.indexOf(Number(object.Muestra.fecha.$date.$numberLong))] = "Sin Dato";
+				}
 			}
 		}
 		indices.push(aux);
@@ -301,6 +310,7 @@ function graficar(tConsulta) {
 			fechas.push(fechai);
 		}
 	}
+	
 
 	/** Llenar los arreglos de parámetros para cada punto de muestreo **/
 	for (var i = 0; i < nombres.length; i++) {
@@ -309,9 +319,9 @@ function graficar(tConsulta) {
 
 	/** Formar el dataset para el gráfico a partir de los datos obtenidos **/
 	var data = {};
-	if (document.getElementById("btnBurbuja").checked) {
+	/*if (document.getElementById("btnBurbuja").checked) {
 		data = datosBurbujaF();
-	} else if (document.getElementById("btnXY").checked) {
+	} else*/ if (document.getElementById("btnXY").checked) {
 		data = datosXYF();
 	} else {
 		data = datosAreaF();
@@ -320,7 +330,8 @@ function graficar(tConsulta) {
 	/** Establecer las opciones del gráfico **/
 	if (tipoGrafico == 'bubble' && graficoNombre) {
 		//Si el gráfico es de burbuja y por punto de muestreo, mostrar las fechas en el eje X
-		var opciones = {scales: {
+		var opciones = {
+			scales: {
 			yAxes: [{
 				ticks: {
 					beginAtZero: true
@@ -342,7 +353,8 @@ function graficar(tConsulta) {
 		}};
 	} else if (tipoGrafico != 'bubble' || graficoNombre) {
 		//Si el gráfico no es de burbuja o si es por nombre mostrar normalmente
-		var opciones = {scales: {
+		var opciones = {
+			scales: {
 			yAxes: [{
 				ticks: {
 					beginAtZero: true
@@ -352,7 +364,9 @@ function graficar(tConsulta) {
 					labelString: parametro
 				}
 			}]
-		}};
+		}
+			
+		};
 		document.getElementById('scrollFechas').style.display = 'none';
 	} else {
 		//Si el gráfico es de burbuja no mostrar las etiquetas del eje X

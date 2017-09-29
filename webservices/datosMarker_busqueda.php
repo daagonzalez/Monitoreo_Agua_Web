@@ -15,6 +15,9 @@
 			if(isset($item[0]->Muestra->val_indice)){
 				unset($item[0]->Muestra->val_indice);
 			}
+			
+			
+			$item[0]->Muestra->fecha=$item[0]->Muestra->fecha->toDateTime()->format('Y-m-d H:i:s');
 			echo json_encode($item);
 		}
 	}

@@ -9,7 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     //Si se invocó el PHP con ambos parámetros
     $fechaIni = $_GET['fechaIni'];
     $fechaFin = $_GET['fechaFin'];
-    $datos    = Mongui::getPorRangoFechas($fechaIni, $fechaFin);
+    $par1 = $_GET['par1'];
+    $par2 = $_GET['par2'];
+    $datos    = Mongui::getPorRangoFechas($fechaIni, $fechaFin,$par1,$par2);
     if ((string) $datos->getID() != '') {
       //Si el ID de lo obtenido no es nulo
       

@@ -8,7 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (isset($_GET['nombre'])) {
     //Si se invocó el PHP con un parámetro nombre
     $nombre = $_GET['nombre'];
-    $datos  = Mongui::getPorNombre($nombre);
+    $par1 = $_GET['par1'];
+    $par2 = $_GET['par2'];
+    $datos  = Mongui::getPorNombre($nombre,$par1,$par2);
     if ((string) $datos->getID() != '') {
       //Si el ID de lo obtenido no es nulo
       $datos = iterator_to_array($datos);

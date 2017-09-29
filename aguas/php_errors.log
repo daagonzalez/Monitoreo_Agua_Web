@@ -137,3 +137,111 @@ Stack trace:
 [22-Sep-2017 01:23:34 UTC] PHP Catchable fatal error:  Argument 1 passed to iterator_to_array() must implement interface Traversable, array given in /home/ubuntu/workspace/aguas/Mongui/getPuntos.php on line 45
 [22-Sep-2017 01:23:34 UTC] PHP Stack trace:
 [22-Sep-2017 01:23:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/getPuntos.php:0
+[29-Sep-2017 03:21:20 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\InvalidArgumentException' with message 'Error parsing "NaN" as 64-bit integer for MongoDB\BSON\UTCDateTime initialization' in /home/ubuntu/workspace/aguas/Mongui/mongui.php:42
+Stack trace:
+#0 /home/ubuntu/workspace/aguas/Mongui/mongui.php(42): MongoDB\BSON\UTCDateTime->__construct('NaN')
+#1 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(12): Mongui::getPorRangoFechas('NaN', '1506038400000')
+#2 {main}
+  thrown in /home/ubuntu/workspace/aguas/Mongui/mongui.php on line 42
+[29-Sep-2017 04:43:05 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1451606400000', '1506556800000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:43:20 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(76): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorNombre.php(13): Mongui::getPorNombre('puente colegio', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:47:14 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:48:32 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:49:16 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:49:27 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:49:38 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:49:55 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:50:24 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:51:18 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue and needs an array' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:52:15 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue unknown operator: $neq' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:52:23 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\RuntimeException' with message 'Can't canonicalize query: BadValue unknown operator: $neq' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php:180
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php(180): MongoDB\Driver\Server->executeQuery('MonitoreoAgua.p...', Object(MongoDB\Driver\Query), Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(437): MongoDB\Operation\Find->execute(Object(MongoDB\Driver\Server))
+#2 /home/ubuntu/workspace/aguas/Mongui/mongui.php(53): MongoDB\Collection->find(Array, Array)
+#3 /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php(14): Mongui::getPorRangoFechas('1506643200000', '1451606400000', '% O2', '% O2')
+#4 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Operation/Find.php on line 180
+[29-Sep-2017 04:54:57 UTC] PHP Fatal error:  Call to a member function getID() on a non-object in /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php on line 15
+[29-Sep-2017 04:54:57 UTC] PHP Stack trace:
+[29-Sep-2017 04:54:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php:0
+[29-Sep-2017 04:55:52 UTC] PHP Fatal error:  Call to a member function getID() on a non-object in /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php on line 15
+[29-Sep-2017 04:55:52 UTC] PHP Stack trace:
+[29-Sep-2017 04:55:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/aguas/Mongui/buscarPorFechas.php:0

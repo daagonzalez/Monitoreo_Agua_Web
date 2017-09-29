@@ -35,14 +35,22 @@ class Mongui
     * @param fF Fecha Final
     * @return MongoCursor con el resultado de la consulta
     **/
-    public static function getPorRangoFechas($fI, $fF)
+    public static function getPorRangoFechas($fI, $fF, $par1, $par2)
     {
       //$collection = Database::getInstance()->getDb()->sitiosMuestreo;
       $collection=connectDatabaseCollection('MonitoreoAgua','puntosMuestreo',0);
       $fInicial   = new MongoDB\BSON\UTCDateTime($fI);
       $fFinal     = new MongoDB\BSON\UTCDateTime($fF);
-      $query      = array('Muestra.fecha' => array('$gt' => $fInicial, '$lte' => $fFinal));
+      
+      $parte1 = array( '$or' => array( array('Muestra.obligatorios.$par1' => ['$ne' =>"ND"]), array('Muestra.opcionales.$par1' => ['$ne' =>"ND"]) ) );
+      $parte2 = array( '$or' => array( array('Muestra.obligatorios.$par2' => ['$ne' =>"ND"]), array('Muestra.opcionales.$par2' => ['$ne' =>"ND"]) ) );
+      $parte3     = array('Muestra.fecha' => array('$gt' => $fInicial, '$lte' => $fFinal));
+      
+      $query = array( '$and' => array( $parte3, array( '$and' => array( $parte1, $parte2  ))  ) );
+      
       $options    = ['sort' => ['Muestra.fecha' => 1]];
+      
+      
 
       $cursor = $collection->find($query, $options);
       return ($cursor);
@@ -53,11 +61,20 @@ class Mongui
     * @param nombre del punto a buscar
     * @return MongoCursor con el resultado de la consulta
     **/
-    public static function getPorNombre($nombre)
+    public static function getPorNombre($nombre,$par1,$par2)
     {
       //$collection = Database::getInstance()->getDb()->sitiosMuestreo;
       $collection=connectDatabaseCollection('MonitoreoAgua','puntosMuestreo',0);
-      $query      = array('POI.nombre_estacion' => $nombre);
+      
+      $parte1 = array( '$or' => array( array('Muestra.obligatorios.$par1' => ['$ne' =>"ND"]), array('Muestra.opcionales.$par1' => ['$ne' =>"ND"]) ) );
+      $parte2 = array( '$or' => array( array('Muestra.obligatorios.$par2' => ['$ne' =>"ND"]), array('Muestra.opcionales.$par2' => ['$ne' =>"ND"]) ) );
+      //array( '$and' => array( array('Muestra.usuario' => $correo), array('Muestra.fecha' => ['$gte' =>  $mongo_date, '$lte'=> $mongo_date_today]) ) );
+      $parte3 = array('POI.nombre_estacion' => $nombre);
+      
+      $query = array( '$and' => array( $parte3, array( '$and' => array( $parte1, $parte2  ))  ) );
+      
+      
+      
       $options    = ['sort' => ['Muestra.fecha' => 1]];
 
       $cursor = $collection->find($query, $options);

@@ -32,7 +32,7 @@
       Tipo de gr&aacutefico:&nbsp;
       <input type="radio" id= "btnArea" name="tipoGrafico" value="area" checked="true" onclick="cambiarTipoGrafico('area');"> Por área &nbsp;
       <input type="radio" id= "btnXY" name="tipoGrafico" value="xy" onclick="cambiarTipoGrafico('xy');"> XY &nbsp;
-      <input type="radio" id= "btnBurbuja" name="tipoGrafico" value="burbuja" onclick="cambiarTipoGrafico('burbuja');"> Burbuja
+      <!--<input type="radio" id= "btnBurbuja" name="tipoGrafico" value="burbuja" onclick="cambiarTipoGrafico('burbuja');"> Burbuja-->
     </div>
   </div>
 
@@ -61,7 +61,7 @@
       <script>
       function graficoAImagen(){
         var win=window.open();
-        win.document.write("<b>" + document.getElementById("nombreGrafico").value + "</b><br><img src='"+myChart.toDataURL("image/png")+"'/>");
+        win.document.write("<b>" + document.getElementById("nombreGrafico").value + "</b><br><img src='"+myChart.toDataURL("image/jpge")+"'/>");
       }
       </script>
       <script src="js/grafiMySQL.js"></script>

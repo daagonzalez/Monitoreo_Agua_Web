@@ -202,7 +202,7 @@ function calcularDiferencia(datos){
           texto=texto+"<br> <b>Punto más bajo:</b> "+results[puntoBajo].elevation+" msnm";
           texto=texto+". <b>Ubicación:</b> "+datos[puntoBajo].POI.nombre_institucion;
           texto=texto+" <b>Estación:</b> "+datos[puntoBajo].POI.nombre_estacion+"</h6>";
-          texto=texto+"<table class='tablaArPOI'><tr><th>Elemento</th><th>Sitio 1</th> <th>Sitio 2</th><th>Resultado</th><th>%</th></tr>";
+          texto=texto+"<table class='tablaArPOI'><tr><th>Elemento</th><th>Diferencia</th><th>Diferencia porcentual</th></tr>";
           
           //se obtienen los parametros obligatorios y opcionales para cada uno.
           var POIOne={};
@@ -216,8 +216,9 @@ function calcularDiferencia(datos){
               var dif = POIOne[key]-POITwo[key];
               if(!isNaN(dif)){
               	dif = dif.toFixed(2);
-              	var percent=((POIOne[key]/POITwo[key])*100).toFixed(0);
-                texto=texto+"<tr>"+"<td>"+key+"</td>"+"<td>"+POIOne[key]+"</td>"+"<td>"+POITwo[key]+"</td>"+"<td>"+dif+"</td>"+"<td>"+percent+"</td>"+"</tr>";
+              	var percent=dif/POITwo[key];//=((POIOne[key]/POITwo[key])*100).toFixed(0);
+              	percent=percent.toFixed(2);
+                texto=texto+"<tr>"+"<td>"+key+"</td>"+"<td>"+dif+"</td>"+"<td>"+percent+"</td>"+"</tr>";
               }
             }
           }
@@ -257,8 +258,19 @@ function calcularVerMas(datos){
   texto = texto+"<tr><th colspan='2'>Datos generales</th></tr>"
     for (var key in muestra){//Se itera sobre cada uno de los elementos
       if(key!="obligatorios"&&key!="opcionales"){
-          texto=texto+"<tr><td>"+key+"</td><td>"+muestra[key]+"</td></tr>";
-      }else if(key=='obligatorios'){
+        if(key=='fotos'){
+          for(var fkey in muestra[key]){
+            //texto=texto+"<tr><td>"+'foto'+"</td><td>"+muestra[key][fkey]+"</td></tr>";
+          }
+        }else if(key=='palabras_claves'){
+          for(var pckey in muestra[key]){
+            //texto=texto+"<tr><td>"+'foto'+"</td><td>"+muestra[key][pckey]+"</td></tr>";
+          }
+        }else{
+          texto=texto+"<tr><td>"+key+"</td><td>"+muestra[key]+"</td></tr>"; 
+        }
+          
+      }/*else if(key=='obligatorios'){
         texto = texto+"<tr><th colspan='2'>Datos obligatorios</th></tr>"
         var obligatorios = muestra['obligatorios'];
         for(var key in obligatorios){
@@ -270,7 +282,7 @@ function calcularVerMas(datos){
         for(var key in obligatorios){
           texto=texto+"<tr><td>"+key+"</td><td>"+opcionales[key]+"</td></tr>";
         }        
-      }
+      }*/
     }  
   texto=texto+"</table>";
   

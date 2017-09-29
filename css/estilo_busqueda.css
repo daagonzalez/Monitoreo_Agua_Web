@@ -144,7 +144,9 @@ top: 17.5%; */
 	height: 1000px;
 	left: 0;
 	top: 10%;
-	background: #F2EFEF;
+	/*background: #F2EFEF;*/
+	background-color:rgba(0, 0, 0, 0.2s);
+	/*opacity: 0.4;*/
 	z-index: 2;
 }
 
@@ -155,8 +157,9 @@ top: 17.5%; */
 	-moz-box-shadow: 6px 7px 36px -2px rgba(0,0,0,0.75);
 	box-shadow: 6px 7px 36px -2px rgba(0,0,0,0.75);
 	margin: 5% 15% 0% 15%;
-	height: 90%;
+	height: 80%;
 	background: #84F17C;
+	/*opacity:1;*/
 }
 
 .contenidoArPOIShort{
