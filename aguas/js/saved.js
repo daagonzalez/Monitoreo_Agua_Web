@@ -48,7 +48,7 @@ function strTipoConsulta(tipo) {
 function listarGraficos() {
 	var lista = [];
 	$.ajax({
-        url: "baseDatos/getGraficos.php",
+        url: "baseDatos/getGraficos.php?usuario=" + email_google,
         async: false,
         dataType: 'json',
         success: function(data) {

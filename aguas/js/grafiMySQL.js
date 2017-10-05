@@ -20,6 +20,7 @@ function guardarGrafi() {
 		var fechaInicio = new Date(document.getElementById('fechaI').value).getTime();
 		var fechaFinal = new Date(document.getElementById('fechaF').value).getTime();
 		var urlPHP = 'nombreGrafico=' + nombreGrafico +
+				'&usuario=' + email_google +
 				'&fechaInicio=' + fechaInicio +
 				'&fechaFinal=' + fechaFinal +
 				'&tipoGrafico=' + tipoGrafico +
@@ -34,6 +35,7 @@ function guardarGrafi() {
 		//Consulta por punto de muestreo
 		var puntoMuestreo = document.getElementById("punto").value;
 		var urlPHP = 'nombreGrafico=' + nombreGrafico +
+				'&usuario=' + email_google +
 				'&puntoMuestreo=' + puntoMuestreo +
 				'&tipoGrafico=' + tipoGrafico +
 				'&primerPar=' + primerPar +
@@ -44,6 +46,7 @@ function guardarGrafi() {
 			urlPHP += '&segundoPar=' + segundoPar;
 		}
 	}
+	console.log(urlPHP);
 	
 	/** Llamar al PHP con los parámetros obtenidos **/
 	$.ajax({

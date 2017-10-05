@@ -1,4 +1,4 @@
-var name, email;
+var name_google, email_google;
 
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -9,11 +9,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     $(".login-cover").hide();
     
     
-    name = user.displayName;
-    email = user.email;
+    name_google = user.displayName;
+    email_google = user.email;
     
-    console.log("Nombre = " + name);
-    console.log("Email = " + email);
+    console.log("Nombre = " + name_google);
+    console.log("Email = " + email_google);
 
     
     
@@ -64,6 +64,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 $(".btn-logout").click(
   function(){
     firebase.auth().signOut().then(function() {
+      location.reload();
       // Sign-out successful.
     }).catch(function(error) {
       // An error happened.

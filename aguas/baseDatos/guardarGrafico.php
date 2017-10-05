@@ -1,4 +1,18 @@
 <?php
+
+header('Content-Type: application/json');
+ 
+$interDir='';
+$ruta = $_SERVER['DOCUMENT_ROOT'].$interDir.'/aguas/Mongui/mongui.php';
+$myfile = fopen("testfile.txt", "w");
+fwrite($myfile, $ruta);
+
+
+
+require $ruta; 
+
+
+
 include('graficosUsuario.php');
 /**
 * Inserta los metadatos del grafico en la tabla graficosUsuario, de acuerdo al tipo de consulta realizada 
@@ -6,13 +20,15 @@ include('graficosUsuario.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['nombreGrafico']) && isset($_POST['descripcion']) &&  isset($_POST['tipoGrafico']) && isset($_POST['primerPar']) && isset($_POST['tipoConsulta'])) {
 
-	session_start();
-    $idUsr = $_SESSION['idUsuario'];
+	//session_start();
+    $idUsr = $_POST['usuario'];
     $nombreGrafico = $_POST['nombreGrafico'];
 	$descripcion = $_POST['descripcion'];
     $tipoGrafico = $_POST['tipoGrafico'];
     $primerPar = $_POST['primerPar'];
     $tipoConsulta = $_POST['tipoConsulta'];
+    fwrite($myfile, "\nSaco datos");
+
 
     if ($tipoConsulta == "Fechas") {
       if (isset($_POST['fechaInicio']) && isset($_POST['fechaFinal'])) {
@@ -24,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           if (isset($_POST['segundoPar'])) {
             $segundoPar = $_POST['segundoPar'];
 			//Insertar un gráfico de burbujas, consultado por rango de fechas
-            $datos = graficosUsuario::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,$fechaInicio,$fechaFinal,null,$tipoGrafico,$primerPar,$segundoPar);
+            $datos = Mongui::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,$fechaInicio,$fechaFinal,null,$tipoGrafico,$primerPar,$segundoPar);
 
             print json_encode($datos);
           } else {
@@ -36,7 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           }
         } else {
 		  //Insertar un gráfico consultado por rango de fechas
-          $datos = graficosUsuario::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,$fechaInicio,$fechaFinal,null,$tipoGrafico,$primerPar,null);
+		      fwrite($myfile, "\nAntes1");
+          $datos = Mongui::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,$fechaInicio,$fechaFinal,null,$tipoGrafico,$primerPar,null);
+          fwrite($myfile, "\nInsertar un gráfico consultado por rango de fechas");
+          fclose($myfile);
           print json_encode($datos);
         }
       } else {
@@ -53,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           if (isset($_POST['segundoPar'])) {
             $segundoPar = $_POST['segundoPar'];
 			//Insertar un gráfico de burbuja, consultado por punto de muestreo
-            $datos = graficosUsuario::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,null,null,$puntoMuestreo,$tipoGrafico,$primerPar,$segundoPar);
+            $datos = Mongui::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,null,null,$puntoMuestreo,$tipoGrafico,$primerPar,$segundoPar);
             print json_encode($datos);
           } else {
             print json_encode(
@@ -64,7 +83,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           }
         } else {
 		  //Insertar un gráfico, consultado por punto de muestreo
-          $datos = graficosUsuario::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,null,null,$puntoMuestreo,$tipoGrafico,$primerPar,null);
+		      fwrite($myfile, "\nAntes2");
+          $datos = Mongui::insertarGrafico($idUsr,$nombreGrafico,$descripcion,$tipoConsulta,null,null,$puntoMuestreo,$tipoGrafico,$primerPar,null);
+          fwrite($myfile, "\nInsertar un gráfico, consultado por punto de muestreo");
+          fclose($myfile);
           print json_encode($datos);
         }
       } else {

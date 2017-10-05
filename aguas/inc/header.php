@@ -8,10 +8,25 @@
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"></meta>
         <!-- Bootstrap CSS -->
         <link href="css/bootstrap.css" media="screen" rel="stylesheet"></link>
+        <script src="https://www.gstatic.com/firebasejs/ui/2.3.0/firebase-ui-auth__es.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.3.0/firebase-ui-auth.css" />
         <link href="css/main.css" media="screen" rel="stylesheet"></link>
+        <link rel="stylesheet" href="../css/styles.css">
         </meta>
     </head>
     <body>
+        
+        <div class="login-cover">
+            <!-- MDL Spinner Component -->
+            <div id="page_loader" class="page-loader mdl-spinner mdl-js-spinner is-active"></div>
+            <div id="logindiv" class="page-loader">
+              <h4 class="mdl-dialog__title">Monitoreo de agua UCR</h4>
+              <p>Debes iniciar sesión para utilizar la plataforma.</p>
+              <div id="loginData" class="mdl-dialog__content">
+              </div>
+            </div>
+        </div>
+        
         <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
             <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right" data-target="#navbarNav" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon">
@@ -43,12 +58,9 @@
                                 Usuario
                             </a>
                             <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="help.php">
-                                    Ayuda
-                                </a>
-                                <a class="dropdown-item" href="login/logout.php">
-                                    Cerrar sesión
-                                </a>
+                                <span class="btn-logout mdl-navigation__link" style="padding: 0 1rem;">
+                                    Cerrar Sesión
+                                </span>
                             </div>
                         </li>
                     </li>
