@@ -1,4 +1,4 @@
-<?php require "inc/header.php";?>
+<?php require "../views/inc/header.php"; require "../views/inc/menuAguas.php";?>
 <!-- Scripts requeridos -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

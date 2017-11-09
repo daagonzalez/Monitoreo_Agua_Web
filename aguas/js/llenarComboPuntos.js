@@ -77,8 +77,8 @@ function llenarPuntos() {
       url: "Mongui/getPuntos.php",//devuelve un json con los marcadores que están en la base de datos.
       dataType: "json",
       success:pintar,
-      error: function () {
-        alert("Hola");
+      error: function (er) {
+        console.log(er);
       },
       });
 	

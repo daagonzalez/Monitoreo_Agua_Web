@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif !important;
+    outline: none;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+.material-icons{
+    font-family: 'Material Icons' !important;
+}
+.fa{
+    font: normal normal normal 14px/1 FontAwesome !important;
+}
+.wo-line-height{
+    line-height: 20px;
+}
+.bold{
+    font-weight: bold;
+}
+
+.background_primario{
+    background-color: rgb(0,150,136) !important;
+    color: rgb(255,255,255) !important;
+}
+
+.background_secundario{
+    background-color: rgb(68,138,255) !important;
+    color: rgb(255,255,255) !important;
+}
+
+.button-left-icon{
+    margin-right: 5px; 
+}
+
+/* LOGIN SECTION */
+
+.login-cover{
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-loader{
+
+}
+#logindiv{
+    display: none;
+    text-align: center;
+}
+
+.firebaseui-idp-password, .firebaseui-idp-password:hover, .mdl-button.firebaseui-idp-password:active, .mdl-button.firebaseui-idp-password:focus{
+    background-color: #db4437;
+}
+
+.btn-logout{
+    cursor: pointer;
+}

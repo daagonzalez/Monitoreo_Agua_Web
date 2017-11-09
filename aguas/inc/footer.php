@@ -1,18 +1,19 @@
-		<footer class="footer text-center">
-		    <div class="container">
-		        <span class="text-muted">
-		            Aguas. Proyecto de Ingeniería de Software.
-		        </span>
-		    </div>
-		</footer>
-		<!-- jQuery first, then Tether, then Bootstrap JS. -->
-	
-		<script crossorigin="anonymous" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
-		</script>
-		<script charset="utf-8" src="js/bootstrap.js">
-		</script>
-		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-		<script>
+  
+  <footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">
+      <a href="index2.php">Monitoreo de aguas UCR</a>
+    </div>
+    <ul class="mdl-mini-footer__link-list">
+      <li><a href="mailto:monitoreoaguacr@gmail.com">monitoreoaguacr@gmail.com</a></li>
+      <li><a href="#">Términos y Condiciones</a></li>
+    </ul>
+  </div>
+  </footer>
+</main>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDGI2Sl4gQcT_XBlGXoe65rkunhMHrqpac",
@@ -24,11 +25,9 @@
   };
   firebase.initializeApp(config);
 </script>  
-<script
+  <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
   <script src="../js/index.js"></script>
-		
-    </body>
-</html>
+    
