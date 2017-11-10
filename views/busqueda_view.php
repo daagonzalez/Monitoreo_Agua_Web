@@ -11,7 +11,7 @@
 <!-- Carga del menú del sitio web -->
 <?php require 'views/inc/menu.php'; ?>
 
-
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 <main class="mdl-layout__content">
     <div class="page-content">
         <div class="mdl-grid">
@@ -69,6 +69,7 @@
 
   <?php require 'views/inc/footer.php';?>
 </main>
+</div>
   <?php require 'views/inc/firebase.php';?>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="js/mapa_busqueda.js"></script>
