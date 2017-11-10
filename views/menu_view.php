@@ -18,13 +18,9 @@
                     <a class="nav-link" href="#">Borrado</a>
                 </li>
 
-
-
             </ul>
         </div>
         <div class="form-inline float-lg-right menu_form">
-
-
 
             <?php
             if (!isset($_SESSION['correo'])) {

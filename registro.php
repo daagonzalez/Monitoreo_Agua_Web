@@ -43,8 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	//echo "$nombre . $correo . $password . $password2";
 
-	
-
 	if (empty($nombre) or empty($correo) or empty($password) or empty($password2)) {
 		$errores .= '<li>Por favor rellena todos los datos correctamente</li>';
 	}else{
@@ -86,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		} catch (MongoException $e){
 			die('No se han podido insertar los datos ' . $e->getMessage());
 		}
-		
+
 	}
 
 }*/

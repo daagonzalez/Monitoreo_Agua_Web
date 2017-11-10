@@ -4,7 +4,6 @@ if (isset($_SESSION['correo'])) {
     header('Location: busqueda.php');
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo = filter_var(strtolower($_POST['correo']), FILTER_SANITIZE_STRING);
     $password = $_POST['contraseña'];
@@ -34,11 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }else{
                 $errores .= '<li>La cuenta no ha sido validada aún.</li>';
             }
-            
+
         }
     }
 
-    
 }
 
     require 'views/login_view.php';

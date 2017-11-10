@@ -35,7 +35,6 @@ function validarDatoNumericoObli($dato){
 //Hacer un loggin con autentificacion.
 //Hacer el menú CRUD.
 
-
 //Cambiar Kit por categoria sensables.
 
 function validarEntero($dato){
@@ -135,24 +134,22 @@ function indiceNSF($PO2, $CF, $DBO, $pH, $Fosfato, $Nitrato, $T, $turbidez, $sol
 }
 function indiceWQIB(){}
 
-
 $mensaje = 'noEnsennar';
 $action = (!empty($_POST['btn_agregar']) && ($_POST['btn_agregar'] === 'Agregar')) ? 'guardarDoc' : 'ensennarForm';
 switch ($action) {
-	case 'guardarDoc':
-		try {
-			$connection = new MongoDB\Client;
-			$database = $connection->PuntosMuestreo;
-			$collection = $database->DatosCurri;
-			$documento = array();
+  case 'guardarDoc':
+    try {
+      $connection = new MongoDB\Client;
+      $database = $connection->PuntosMuestreo;
+      $collection = $database->DatosCurri;
+      $documento = array();
 
-
-			$documento['Institucion'] = $_POST['institucion'];
-			$documento['email'] = $_POST['email'];
-			//$documento['kit'] = $_POST['kit'];
-			$documento['Estacion'] = $_POST['estacion'];
-			$documento['Nombre'] = $_POST['nombre'];
-			$documento['Fecha'] = $_POST['fecha'];
+      $documento['Institucion'] = $_POST['institucion'];
+      $documento['email'] = $_POST['email'];
+      //$documento['kit'] = $_POST['kit'];
+      $documento['Estacion'] = $_POST['estacion'];
+      $documento['Nombre'] = $_POST['nombre'];
+      $documento['Fecha'] = $_POST['fecha'];
       $documento['Hora'] = $_POST['hora'];
       $docAni1 = array();
       $docAni1['Latitud'] = validarDatoNumericoObli($_POST['latitud']);
@@ -209,16 +206,16 @@ switch ($action) {
       }else{
         $documento['Indice'] = $indice;
       }
-			$Opcio['DQO'] = validarDato($_POST['dqo']);
-			$Opcio['EC'] = validarDato($_POST['ec']);
-			$Opcio['PO4'] = validarDato($_POST['po4']);
-			$Opcio['GYA'] = validarDato($_POST['gya']);
-			$Opcio['SD'] = validarDato($_POST['sd']);
-			$Opcio['Ssed'] = validarDato($_POST['ssed']);
-			$Opcio['SST'] = validarDato($_POST['sst']);
-			$Opcio['ST'] = validarDato($_POST['st']);
-			$Opcio['SAAM'] = validarDato($_POST['saam']);
-			$Opcio['Aforo'] = validarDato($_POST['aforo']);
+      $Opcio['DQO'] = validarDato($_POST['dqo']);
+      $Opcio['EC'] = validarDato($_POST['ec']);
+      $Opcio['PO4'] = validarDato($_POST['po4']);
+      $Opcio['GYA'] = validarDato($_POST['gya']);
+      $Opcio['SD'] = validarDato($_POST['sd']);
+      $Opcio['Ssed'] = validarDato($_POST['ssed']);
+      $Opcio['SST'] = validarDato($_POST['sst']);
+      $Opcio['ST'] = validarDato($_POST['st']);
+      $Opcio['SAAM'] = validarDato($_POST['saam']);
+      $Opcio['Aforo'] = validarDato($_POST['aforo']);
       $documento['Opcionales'] = $Opcio;
 
       if($error != "error") {
@@ -230,18 +227,18 @@ switch ($action) {
         $mensaje = 'noExitosa';
         $action = 'ensennarForm';
       } 
-		}
-		catch (MongoConnectionException $e) {
-			die("No se ha podido conectar a la base de datos " . $e->getMessage());
-		}catch(MongoCursorException $e){
-			die("Ha fallado la insercion ". $e->getMessage());
-		}catch (MongoException $e){
-			die('No se han podido insertar los datos ' . $e->getMessage());
-		}
-		
-		break;
-	case 'ensennarForm' :
-	default:
+    }
+    catch (MongoConnectionException $e) {
+      die("No se ha podido conectar a la base de datos " . $e->getMessage());
+    }catch(MongoCursorException $e){
+      die("Ha fallado la insercion ". $e->getMessage());
+    }catch (MongoException $e){
+      die('No se han podido insertar los datos ' . $e->getMessage());
+    }
+
+    break;
+  case 'ensennarForm' :
+  default:
 }
 require 'views/insercion_view.php';
 ?>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no,
-	 initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -45,24 +45,24 @@
 
             <!-- Contenedor realizan las consultas gruesas de la base de datos, se encuentra dentro del mapa -->
             <!-- <div class="buscador">
-  		<ul class="mainUl">
-  			<h4 class="title">Seleccione filtros</h4>
-  			<ul class="childUl">			
-  				<li>
-  					<h4>Fecha (inicio-fin)</h4> 
-  					<input type="date" class="date">  
-  					<input type="date" class="date">
-  				</li>
-  				<li>
-  					<h4>Institución</h4>    
-  					<select id="institucion">
-  	
-  					</select>
-  		  	</li>
-  	          <button class="btnFiltrar"><i class="fa fa-search" style="color: blue;"></i></button>
-  			</ul>
-  		</ul> 
-  	</div> -->
+      <ul class="mainUl">
+        <h4 class="title">Seleccione filtros</h4>
+        <ul class="childUl">      
+          <li>
+            <h4>Fecha (inicio-fin)</h4> 
+            <input type="date" class="date">  
+            <input type="date" class="date">
+          </li>
+          <li>
+            <h4>Institución</h4>    
+            <select id="institucion">
+
+            </select>
+          </li>
+              <button class="btnFiltrar"><i class="fa fa-search" style="color: blue;"></i></button>
+        </ul>
+      </ul> 
+    </div> -->
 
             <!-- Contenedor del mapa, cargado desde js -->
             <div id="map"></div>
