@@ -4,12 +4,8 @@
 
 <!-- Se cargar los encabezados de la página -->
 <?php require 'views/inc/header.php';?>
-<body>
 <!-- El header contiene los generales mediante js se cargan los propios de la sección -->
-<script type="text/javascript">
-            $('head').append('<link rel="stylesheet" type="text/css" href="css/estilo_busqueda.css">');
-</script>    
-
+<body>
 <!-- Se carga el cover para control de login mediante firebase -->
 <?php require 'views/inc/login_cover.php';?>
 <!-- Carga del menú del sitio web -->
@@ -77,5 +73,13 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="js/mapa_busqueda.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBF0VFFF-7ojo6bKf_G81kq2cazEhaB2cc&signed_in=true&callback=initMap"></script>
+
+  <script type="text/javascript">
+    $(document).ready(
+        function(){
+            $('head').append('<link rel="stylesheet" type="text/css" href="css/estilo_busqueda.css">');
+        }
+    )
+</script>
 </body>
 </html>
