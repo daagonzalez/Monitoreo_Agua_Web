@@ -29,7 +29,8 @@ function initMap() {
 	 map = new google.maps.Map(document.getElementById('map'), {
 	    zoom: 11,
 	    center: {"lat":9.876711,"lng":-84.104376},
-	    radius:19
+	    radius:19,
+      gestureHandling: 'cooperative'
 	  });
 
 
