@@ -12,11 +12,11 @@
          <div class="mdl-layout-spacer"></div> 
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="nav-link" href="Insercion.php">Inserción</a>          
+          <a class="mdl-navigation__link" href="insercion.php">Inserción</a>          
           <a class="mdl-navigation__link" href='aguas/'>Gráficas</a>
-          <a class="nav-link" href="busqueda.php">Búsqueda <span class="sr-only">(current)</span></a>
-          <a class="nav-link" href="#">Actualización</a>
-          <a class="nav-link" href="#">Borrado</a>
+          <a class="mdl-navigation__link" href="busqueda.php">Búsqueda</a>
+          <a class="mdl-navigation__link" href="#">Actualización</a>
+          <a class="mdl-navigation__link" href="#">Borrado</a>
           <button class="btn-logout background_primario mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
               <i class="button-left-icon material-icons">account_circle</i>Cerrar Sesión
           </button>
