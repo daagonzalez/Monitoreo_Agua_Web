@@ -9,7 +9,7 @@
         <!-- Title -->
         <span class="mdl-layout-title"><a href="index2.php">Monitoreo de aguas UCR</a></span>
         <!-- Add spacer, to align navigation to the right -->
-        <!-- <div class="mdl-layout-spacer"></div> -->
+         <div class="mdl-layout-spacer"></div> 
         <!-- Navigation. We hide it in small screens. -->
         <nav class="mdl-navigation mdl-layout--large-screen-only">
           <a class="mdl-navigation__link" href='aguas/'>Gráficas</a>
