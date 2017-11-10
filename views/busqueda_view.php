@@ -7,12 +7,9 @@
 <body>
 <!-- El header contiene los generales mediante js se cargan los propios de la sección -->
 <script type="text/javascript">
-    $(document).ready(
-        function(){
             $('head').append('<link rel="stylesheet" type="text/css" href="css/estilo_busqueda.css">');
-        }
-    )
 </script>    
+
 <!-- Se carga el cover para control de login mediante firebase -->
 <?php require 'views/inc/login_cover.php';?>
 <!-- Carga del menú del sitio web -->
@@ -76,8 +73,6 @@
 
   <?php require 'views/inc/footer.php';?>
 </main>
-
-
   <?php require 'views/inc/firebase.php';?>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="js/mapa_busqueda.js"></script>

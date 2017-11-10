@@ -447,3 +447,15 @@ Stack trace:
 [10-Nov-2017 03:40:24 UTC] PHP Fatal error:  require(): Failed opening required 'views/inc/header.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/views/prueba.php on line 2
 [10-Nov-2017 03:40:24 UTC] PHP Stack trace:
 [10-Nov-2017 03:40:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/prueba.php:0
+[10-Nov-2017 05:07:44 UTC] PHP Warning:  require(views/menu_view.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:44 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0
+[10-Nov-2017 05:07:44 UTC] PHP Fatal error:  require(): Failed opening required 'views/menu_view.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:44 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0
+[10-Nov-2017 05:07:51 UTC] PHP Warning:  require(views/menu_view.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:51 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0
+[10-Nov-2017 05:07:51 UTC] PHP Fatal error:  require(): Failed opening required 'views/menu_view.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:51 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0
