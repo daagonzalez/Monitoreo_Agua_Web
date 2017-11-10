@@ -6,11 +6,7 @@
 <?php require 'views/inc/header.php';?>
 <!-- El header contiene los generales mediante js se cargan los propios de la sección -->
 <script type="text/javascript">
-    $(document).ready(
-        function(){
             $('head').append('<link rel="stylesheet" type="text/css" href="css/estilo_busqueda.css">');
-        }
-    )
 </script>
 
 <body>
@@ -77,8 +73,6 @@
 
   <?php require 'views/inc/footer.php';?>
 </main>
-
-
   <?php require 'views/inc/firebase.php';?>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript" src="js/mapa_busqueda.js"></script>
