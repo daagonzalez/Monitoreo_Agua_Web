@@ -77,7 +77,7 @@
 
   <?php require 'views/inc/footer.php';?>
 </main>
-<body>
+</body>
 
 
 <?php require 'views/inc/firebase.php';?>
