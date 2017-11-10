@@ -4,6 +4,7 @@
 
 <!-- Se cargar los encabezados de la página -->
 <?php require 'views/inc/header.php';?>
+<body>
 <!-- El header contiene los generales mediante js se cargan los propios de la sección -->
 <script type="text/javascript">
     $(document).ready(
@@ -11,9 +12,7 @@
             $('head').append('<link rel="stylesheet" type="text/css" href="css/estilo_busqueda.css">');
         }
     )
-</script>
-
-<body>
+</script>    
 <!-- Se carga el cover para control de login mediante firebase -->
 <?php require 'views/inc/login_cover.php';?>
 <!-- Carga del menú del sitio web -->
