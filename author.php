@@ -15,5 +15,5 @@ require 'webservices/databaseConnection.php';
 		$author=$item["Muestra"]['usuario'];
 		require 'views/author_view.php';
 	}
-	
+
  ?>

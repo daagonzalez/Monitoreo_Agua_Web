@@ -1,7 +1,6 @@
 <?php
 	require 'vendor/autoload.php'; // include Composer goodies
 
-
 	//indica los campos de filtro, se obtienen por medio del metodo GET y se agregan a la consulta solamente los campos que se enviaron
 	//El punto que indica a cual documento pertenece se representa con una coma ya que no se puede enviar punto. 
 	$filtros=["Muestra,usuario","POI,nombre_institucion","POI,nombre_estacion","POI,kit_desc","Muestra,indice_usado","POI,datos_geograficos,area_administrativa_1","POI,datos_geograficos,area_administrativa_2","POI,datos_geograficos,area_administrativa_3"];
@@ -23,7 +22,6 @@
 		}
 	}
 
-
 	//al ser la fecha dos opciones posibles, se obtiene por separado y se analizan las 3 posibilidades
 	//opcion 1: vienen ambos parametros, se crea una especie de between
 	//opcion 2: solamente viene la fecha inferior, se obtienen todos los valores superiores a dicha fecha
@@ -43,7 +41,6 @@
 		$consulta[$contador]=$element;	
 	}
 
-
 	//se separa la consulta por medio del operador OR para cada uno de los campos presentes generados anteriormente.
 	$consulta = ['$and'=>$consulta];
 
@@ -57,7 +54,7 @@
 	        [ '$sort' => ['Muestra.fecha'=> -1]],
 	        [ '$group' => ['_id' => '$POI.nombre_estacion', 'id'=>['$first'=>'$_id'],'color' => ['$first' => '$Muestra.color'],'location'=>['$first'=>'$POI.location']/*,'fecha'=>['$first'=>'$Muestra.fecha']*/  ] ]
 	    ]);
-	    
+
 	    $result =iterator_to_array($result);
 		foreach ($result as $doc) {
 			$doc["id"]=(string)$doc["id"];

@@ -429,3 +429,33 @@ Stack trace:
 [29-Sep-2017 06:41:34 UTC] PHP Fatal error:  Call to a member function format() on a non-object in /home/ubuntu/workspace/webservices/datosMarker_busqueda.php on line 20
 [29-Sep-2017 06:41:34 UTC] PHP Stack trace:
 [29-Sep-2017 06:41:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/webservices/datosMarker_busqueda.php:0
+[10-Nov-2017 03:39:36 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\ConnectionTimeoutException' with message 'No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php:341
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(341): MongoDB\Driver\Manager->selectServer(Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/php/completadoFiltro_busqueda.php(10): MongoDB\Collection->distinct('POI.nombre_inst...')
+#2 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 341
+[10-Nov-2017 03:39:37 UTC] PHP Fatal error:  Uncaught exception 'MongoDB\Driver\Exception\ConnectionTimeoutException' with message 'No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']' in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php:185
+Stack trace:
+#0 /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php(185): MongoDB\Driver\Manager->selectServer(Object(MongoDB\Driver\ReadPreference))
+#1 /home/ubuntu/workspace/webservices/getMarkers_busqueda.php(12): MongoDB\Collection->aggregate(Array)
+#2 {main}
+  thrown in /home/ubuntu/workspace/vendor/mongodb/mongodb/src/Collection.php on line 185
+[10-Nov-2017 03:40:24 UTC] PHP Warning:  require(views/inc/header.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/views/prueba.php on line 2
+[10-Nov-2017 03:40:24 UTC] PHP Stack trace:
+[10-Nov-2017 03:40:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/prueba.php:0
+[10-Nov-2017 03:40:24 UTC] PHP Fatal error:  require(): Failed opening required 'views/inc/header.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/views/prueba.php on line 2
+[10-Nov-2017 03:40:24 UTC] PHP Stack trace:
+[10-Nov-2017 03:40:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/prueba.php:0
+[10-Nov-2017 05:07:44 UTC] PHP Warning:  require(views/menu_view.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:44 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0
+[10-Nov-2017 05:07:44 UTC] PHP Fatal error:  require(): Failed opening required 'views/menu_view.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:44 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0
+[10-Nov-2017 05:07:51 UTC] PHP Warning:  require(views/menu_view.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:51 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0
+[10-Nov-2017 05:07:51 UTC] PHP Fatal error:  require(): Failed opening required 'views/menu_view.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/views/busqueda_view1.php on line 28
+[10-Nov-2017 05:07:51 UTC] PHP Stack trace:
+[10-Nov-2017 05:07:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/views/busqueda_view1.php:0

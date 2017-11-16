@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-
     <!-- <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/validacion.js"></script> -->
     <link rel="stylesheet" href="css/estilo_registro.css">
@@ -73,8 +72,6 @@
         </div>
     </div>
 
-
-
     <!-- Latest compiled and minified CSS -->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 
@@ -101,7 +98,6 @@
                 });
             });
         });
-
     </script>
 
 </body>
