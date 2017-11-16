@@ -72,9 +72,9 @@ function colorRepetido(color1,color2,color3){
 function datosBurbujaF() {	
 	colores = [];
 	coloresUsados = [];
-	if (!graficoNombre) {
-		for (var i = 0 ; i < fechasN.length ; i++) {
+	if (false) {
 			datasets = [];
+		for (var i = 0 ; i < fechasN.length ; i++) {
 			for (var c = 0; c < nombres.length; c++)
 				generarColor();
 			for (var j = 0 ; j < nombres.length ; j++) {
@@ -89,9 +89,10 @@ function datosBurbujaF() {
 				};
 				datasets.push(array);
 			}
-			datosBurbuja[i] = {datasets: datasets};
+			// datosBurbuja[i] = {datasets: datasets};
 		}
-		return datosBurbuja[indFechaAct];		
+		console.log(datasets);
+		return datasets;		
 	} else {
 		generarColor();
 		datasets = [];
@@ -175,7 +176,7 @@ function cambiarScrollFecha(objeto) {
 		indFechaAct = i;
 
 		/**Cambiar el dataset del gráfico**/
-		elGrafico.config.data = datosBurbuja[indFechaAct];
+		// elGrafico.config.data = datosBurbuja[indFechaAct];
 		elGrafico.update();
 	}
 }
@@ -262,7 +263,7 @@ function graficar(tConsulta) {
 			}
 		});
 	}
-	console.log(arrayOfObjects);
+	// console.log(arrayOfObjects);
 
 	/**
 	* Llena los arreglos con los valores según los parámetros elegidos
@@ -319,9 +320,9 @@ function graficar(tConsulta) {
 
 	/** Formar el dataset para el gráfico a partir de los datos obtenidos **/
 	var data = {};
-	/*if (document.getElementById("btnBurbuja").checked) {
+	if (document.getElementById("btnBurbuja").checked) {
 		data = datosBurbujaF();
-	} else*/ if (document.getElementById("btnXY").checked) {
+	} else if (document.getElementById("btnXY").checked) {
 		data = datosXYF();
 	} else {
 		data = datosAreaF();
@@ -386,7 +387,7 @@ function graficar(tConsulta) {
 				}]
 			}
 		};
-		llenarScrollFechas(fechas);
+		// llenarScrollFechas(fechas);
 	}
 
 	/** Crear el gráfico **/
