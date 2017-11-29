@@ -17,13 +17,7 @@
                             <div class="mdl-grid">
                                 <div class="main">
                                     <!-- SubMenu para el mapa, principalmente para anidar consultas -->
-                                    <div class="anidar">
-                                        <h3 class="wo-line-height bold">Calidad del agua:</h3>
-                                        <button class="btn" value=0 id="calidad1" style="background: blue"></button>
-                                        <button class="btn" value=0 id="calidad2" style="background: green"></button>
-                                        <button class="btn" value=0 id="calidad3" style="background: yellow"></button>
-                                        <button class="btn" value=0 id="calidad4" style="background: orange"></button>
-                                        <button class="btn" value=0 id="calidad5" style="background: red"></button>
+                                    <div class="anidar">                                        
                                         <input type="number" min="1" id="inputFilterRadio" placeholder="Radio">
                                         <button class="btn botonFiltroR" onclick="aplicarFiltro(document.getElementById('inputFilterRadio').value,1)"><i class="fa fa-filter"></i></button>
                                         <button class="btn reset" id="reset"><i class="fa fa-eraser"></i></button>
@@ -62,6 +56,22 @@
                                             <br>
                                             <div class="contenidoArPOIShort"></div>
                                         </div>
+                                    </div>
+
+                                    <!-- Contenedor utilizado para mostrar la simbología usada en el mapa -->
+                                    <div class="anidar">
+                                        <h3 class="wo-line-height bold">Calidad del agua:</h3>
+                                        <img value=0 id="calidad1" src="data/Templatic-map-icons/Azul.png"></img>
+                                            <h7>Sin Contaminación</h7>
+                                        <img value=0 id="calidad2" src="data/Templatic-map-icons/Verde.png"></img>
+                                            <h7>Contaminación Incipiente</h7>
+                                        <hr>
+                                        <img value=0 id="calidad3" src="data/Templatic-map-icons/Amarillo.png"></img>
+                                            <h7>Contaminación Moderada</h7>
+                                        <img value=0 id="calidad4" src="data/Templatic-map-icons/Anaranjado.png"></img>
+                                            <h7>Contaminación Severa</h7>
+                                        <img value=0 id="calidad5" src="data/Templatic-map-icons/Rojo.png"></img>
+                                            <h7>Contaminación Muy Severa</h7>
                                     </div>
                                 </div>
                             </div>

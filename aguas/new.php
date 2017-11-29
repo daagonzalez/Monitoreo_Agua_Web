@@ -67,6 +67,7 @@
       <script src="js/grafiMySQL.js"></script>
       <button onclick="graficoAImagen()" class="button btn btn-primary mt-4">Guardar como imagen</button>
       <button onclick="guardarGrafi()" id="btnGuardarGraf" class="button btn btn-primary mt-4">Guardar Gr&aacutefico</button>
+      <button onclick="setInterval(avanzarBurbuja, 1000)" class="button btn btn-primary mt-4">Avanzar burbuja</button>
     </div>
   </div>
 

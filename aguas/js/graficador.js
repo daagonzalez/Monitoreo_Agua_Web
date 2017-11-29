@@ -14,6 +14,7 @@ var datasets = [];
 var graficoGenerado = false;
 var graficoNombre = false;
 var graficoNuevo = true;
+var myTimer;
 
 /**
 *
@@ -72,27 +73,39 @@ function colorRepetido(color1,color2,color3){
 function datosBurbujaF() {	
 	colores = [];
 	coloresUsados = [];
-	if (false) {
-			datasets = [];
+	if (!graficoNombre) {
 		for (var i = 0 ; i < fechasN.length ; i++) {
+			datasets = [];
 			for (var c = 0; c < nombres.length; c++)
 				generarColor();
 			for (var j = 0 ; j < nombres.length ; j++) {
+				var datos = [];
+				for (var t = 0 ; t < fechasN.length ; t++) {
+					if (t == i) {
+						datos.push({
+							"x": fechasN[i],
+							"y": indices[j][i],
+							"r": indices2[j][i]
+						});
+					}
+					else {
+						datos.push({
+							"x": fechasN[t],
+							"y": null,
+							"r": null
+						})
+					}
+				}
 				var array = {
 					"label": nombres[j], 
-					"data" : [{
-						"x": fechasN[i],
-						"y": indices[j][i],
-						"r": indices2[j][i]
-					}],
+					"data" : datos,
 				"backgroundColor": colores[j]
 				};
 				datasets.push(array);
 			}
-			// datosBurbuja[i] = {datasets: datasets};
+			datosBurbuja[i] = {datasets: datasets};
 		}
-		console.log(datasets);
-		return datasets;		
+		return datosBurbuja[indFechaAct];		
 	} else {
 		generarColor();
 		datasets = [];
@@ -176,7 +189,7 @@ function cambiarScrollFecha(objeto) {
 		indFechaAct = i;
 
 		/**Cambiar el dataset del gráfico**/
-		// elGrafico.config.data = datosBurbuja[indFechaAct];
+		elGrafico.config.data = datosBurbuja[indFechaAct];
 		elGrafico.update();
 	}
 }
@@ -197,6 +210,16 @@ function llenarScrollFechas() {
 	document.getElementById('scrollFechas').style.display = 'block'; //Se hace visible
 	document.getElementById('scrollFechas').innerHTML = elHtml;
 	document.getElementById('fecha'+indFechaAct).className = 'liFechasSelected';
+}
+
+function avanzarBurbuja() {
+	if (indFechaAct <=fechasN.length) {
+		indFechaAct++;
+		elGrafico.config.data = datosBurbuja[indFechaAct];
+		elGrafico.update();
+	} else {
+		window.clearInterval(myTimer);
+	}
 }
 
 /**
@@ -352,6 +375,7 @@ function graficar(tConsulta) {
 				}
 			}]
 		}};
+		myTimer = setInterval(avanzarBurbuja, 1000);
 	} else if (tipoGrafico != 'bubble' || graficoNombre) {
 		//Si el gráfico no es de burbuja o si es por nombre mostrar normalmente
 		var opciones = {
@@ -385,9 +409,13 @@ function graficar(tConsulta) {
 				xAxes: [{
 					display: false
 				}]
-			}
+			},
+			 animation: {
+                    duration: 10,
+                    easing: 'easeOutElastic'
+                }
 		};
-		// llenarScrollFechas(fechas);
+		myTimer = setInterval(avanzarBurbuja, 1000);
 	}
 
 	/** Crear el gráfico **/
